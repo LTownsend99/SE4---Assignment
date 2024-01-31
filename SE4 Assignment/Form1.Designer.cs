@@ -28,25 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            drawingBox = new PictureBox();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox1 = new RichTextBox();
-            textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            commandBox = new RichTextBox();
+            commandLine = new TextBox();
+            runButton = new Button();
+            syntaxButton = new Button();
+            Terminal = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)drawingBox).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // drawingBox
             // 
-            pictureBox1.Location = new Point(439, 41);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(481, 573);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            drawingBox.BackColor = SystemColors.ControlLightLight;
+            drawingBox.Location = new Point(439, 41);
+            drawingBox.Name = "drawingBox";
+            drawingBox.Size = new Size(481, 573);
+            drawingBox.TabIndex = 0;
+            drawingBox.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -83,34 +87,74 @@
             openToolStripMenuItem.Size = new Size(224, 26);
             openToolStripMenuItem.Text = "Open";
             // 
-            // richTextBox1
+            // commandBox
             // 
-            richTextBox1.Location = new Point(12, 41);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(421, 502);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
+            commandBox.BackColor = SystemColors.HighlightText;
+            commandBox.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            commandBox.Location = new Point(12, 41);
+            commandBox.Name = "commandBox";
+            commandBox.Size = new Size(421, 505);
+            commandBox.TabIndex = 2;
+            commandBox.Text = "";
             // 
-            // textBox1
+            // commandLine
             // 
-            textBox1.Location = new Point(12, 549);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(421, 27);
-            textBox1.TabIndex = 3;
+            commandLine.BackColor = SystemColors.HighlightText;
+            commandLine.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            commandLine.Location = new Point(12, 552);
+            commandLine.Name = "commandLine";
+            commandLine.Size = new Size(421, 25);
+            commandLine.TabIndex = 3;
+            // 
+            // runButton
+            // 
+            runButton.BackColor = SystemColors.ButtonFace;
+            runButton.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            runButton.Location = new Point(12, 585);
+            runButton.Name = "runButton";
+            runButton.Size = new Size(94, 29);
+            runButton.TabIndex = 4;
+            runButton.Text = "Run";
+            runButton.UseVisualStyleBackColor = false;
+            // 
+            // syntaxButton
+            // 
+            syntaxButton.BackColor = SystemColors.ButtonFace;
+            syntaxButton.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            syntaxButton.Location = new Point(339, 585);
+            syntaxButton.Name = "syntaxButton";
+            syntaxButton.Size = new Size(94, 29);
+            syntaxButton.TabIndex = 5;
+            syntaxButton.Text = "Syntax";
+            syntaxButton.UseVisualStyleBackColor = false;
+            // 
+            // Terminal
+            // 
+            Terminal.BackColor = SystemColors.InfoText;
+            Terminal.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Terminal.ForeColor = SystemColors.HighlightText;
+            Terminal.Location = new Point(12, 620);
+            Terminal.Multiline = true;
+            Terminal.Name = "Terminal";
+            Terminal.Size = new Size(908, 229);
+            Terminal.TabIndex = 6;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(932, 861);
-            Controls.Add(textBox1);
-            Controls.Add(richTextBox1);
-            Controls.Add(pictureBox1);
+            Controls.Add(Terminal);
+            Controls.Add(syntaxButton);
+            Controls.Add(runButton);
+            Controls.Add(commandLine);
+            Controls.Add(commandBox);
+            Controls.Add(drawingBox);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)drawingBox).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -119,13 +163,16 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox drawingBox;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem saveToolStripMenuItem;
-        private RichTextBox richTextBox1;
-        private TextBox textBox1;
+        private RichTextBox commandBox;
+        private TextBox commandLine;
+        private Button runButton;
+        private Button syntaxButton;
+        private TextBox Terminal;
     }
 }
