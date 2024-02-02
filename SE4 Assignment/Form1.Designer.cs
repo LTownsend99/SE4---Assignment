@@ -31,6 +31,7 @@
             drawingBox = new PictureBox();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             commandBox = new RichTextBox();
@@ -38,7 +39,6 @@
             runButton = new Button();
             syntaxButton = new Button();
             Terminal = new TextBox();
-            newToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)drawingBox).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -51,6 +51,7 @@
             drawingBox.Size = new Size(481, 573);
             drawingBox.TabIndex = 0;
             drawingBox.TabStop = false;
+            drawingBox.Paint += drawingBox_Paint;
             // 
             // menuStrip1
             // 
@@ -69,10 +70,17 @@
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
             // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(128, 26);
+            newToolStripMenuItem.Text = "New";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
+            // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(224, 26);
+            openToolStripMenuItem.Size = new Size(128, 26);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
@@ -112,6 +120,7 @@
             runButton.TabIndex = 4;
             runButton.Text = "Run";
             runButton.UseVisualStyleBackColor = false;
+            runButton.Click += runButton_Click;
             // 
             // syntaxButton
             // 
@@ -134,13 +143,6 @@
             Terminal.Name = "Terminal";
             Terminal.Size = new Size(908, 229);
             Terminal.TabIndex = 6;
-            // 
-            // newToolStripMenuItem
-            // 
-            newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(224, 26);
-            newToolStripMenuItem.Text = "New";
-            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // Form1
             // 
