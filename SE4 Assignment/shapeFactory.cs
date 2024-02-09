@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SE4_Assignment
 {
-    internal class shapeFactory
+    public class shapeFactory
     {
 
         public static Command proccessCommand(String instruction)

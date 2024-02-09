@@ -14,6 +14,7 @@ namespace SE4_Assignment
 
         public DrawTo(string[] array) : base(array)
         {
+            noOfParameters = 2;
         }
 
         public override void runCommand()

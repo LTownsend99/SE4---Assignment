@@ -10,7 +10,7 @@ namespace SE4_Assignment
     {
         protected int radius;
 
-        public Circle(string[] array) : base(array) { }
+        public Circle(string[] array) : base(array) { noOfParameters = 1; }
 
         public override void runCommand()
         {
@@ -27,6 +27,17 @@ namespace SE4_Assignment
 
             if (radius <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when Radius should be Positive"); }
 
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+
+            Circle other = (Circle)obj;
+            return this.radius == other.radius;
         }
     }
 }

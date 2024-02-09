@@ -5,8 +5,10 @@ namespace SE4_Assignment
 {
     public partial class Form1 : Form
     {
+        Bitmap bitmap;
         public Form1()
         {
+            bitmap = new Bitmap(640, 480);
             InitializeComponent();
 
 

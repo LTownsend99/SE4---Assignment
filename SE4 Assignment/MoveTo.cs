@@ -13,6 +13,7 @@ namespace SE4_Assignment
 
         public MoveTo(string[] array) : base(array)
         {
+            noOfParameters = 2;
         }
 
         public override void runCommand()
