@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Windows.Forms;
-
 namespace SE4_Assignment
 {
     public partial class Form1 : Form
@@ -62,7 +59,7 @@ namespace SE4_Assignment
 
         private void runButton_Click(object sender, EventArgs e)
         {
-           String commandText = commandLine.Text;
+            String commandText = commandLine.Text;
 
             try
             {
@@ -70,7 +67,7 @@ namespace SE4_Assignment
 
                 command.runCommand();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Terminal.Text = ex.Message;
             }

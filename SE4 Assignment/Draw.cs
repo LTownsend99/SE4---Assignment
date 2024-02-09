@@ -1,29 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SE4_Assignment
+﻿namespace SE4_Assignment
 {
-    internal class Draw
+    public class Draw
     {
         Pen pen;
+        SolidBrush brush;
         Graphics g;
+        Color colour = Color.Black;
         int xPos;
         int yPos;
-   
-        public Draw (Graphics g)
+
+        public Draw(Graphics g)
         {
             this.g = g;
             xPos = 0;
-            yPos = 0;   
+            yPos = 0;
 
         }
 
         public void drawCircle(int radius)
         {
-            
+            pen.Color = colour;
+            g.DrawEllipse(pen, xPos, yPos, radius * 2, radius * 2);
+        }
+
+        public void fillCircle(int radius)
+        {
+            brush = new(colour);
+
+            g.FillEllipse(brush, xPos, yPos, radius * 2, radius * 2);
         }
     }
 }

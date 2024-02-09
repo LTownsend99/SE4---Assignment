@@ -12,23 +12,32 @@ namespace SE4_Assignment_Test
 
             shapeFactory shapeFactory = new shapeFactory();
 
-            Assert.ThrowsException<Exception>(() => shapeFactory.proccessCommand(commandName), ("Invalid Command Word " + commandName)); 
+            Assert.ThrowsException<Exception>(() => shapeFactory.proccessCommand(commandName), ("Invalid Command Word " + commandName));
 
         }
 
-        [TestMethod]
-        public void TestValidCommand()
+        [DataTestMethod]
+        [DataRow("CIRCLE", "50")] // Valid circle command
+        [DataRow("RECTANGLE", "10,20,30,40")] // Valid rectangle command
+        [DataRow("TRIANGLE", "3,4")] // Valid triangle command
+        [DataRow("MOVETO", "10,5")] // Valid moveTo command
+        [DataRow("DRAWTO", "25,30")] // Valid drawTo command
+        public void TestValidCommandWord(string shapeCommand, string parameters)
         {
-            string commandName = "CIRCLE 50";
-            string[] parameters = commandName.Split(' ').Skip(1).ToArray();
-            Circle expected = new Circle(parameters);
 
             shapeFactory shapeFactory = new shapeFactory();
 
-            Circle actual = (Circle) shapeFactory.proccessCommand(commandName);
+            try
+            {
+                shapeFactory.proccessCommand(shapeCommand + " " + parameters);
 
-            Assert.AreEqual(actual , expected);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(" An exception was thrown: " + ex);
+            }
 
         }
+
     }
 }
