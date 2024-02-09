@@ -24,6 +24,10 @@ namespace SE4_Assignment
                     return new Triangle(parameters);
                 case "RECTANGLE":
                     return new Rectangle(parameters);
+                case "MOVETO":
+                    return new MoveTo(parameters);
+                case "DRAWTO":
+                    return new DrawTo(parameters);
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

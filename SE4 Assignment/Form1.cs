@@ -5,12 +5,11 @@ namespace SE4_Assignment
 {
     public partial class Form1 : Form
     {
-        ArrayList shapes = new ArrayList();
         public Form1()
         {
             InitializeComponent();
 
-            shapes.Add(new Rectangle(Color.Black, 150, 150, 50, 100));
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
