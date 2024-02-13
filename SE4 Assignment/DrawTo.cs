@@ -11,9 +11,9 @@
             noOfParameters = 2;
         }
 
-        public override void runCommand()
+        public override void runCommand(Draw draw)
         {
-            base.runCommand();
+            base.runCommand(draw);
 
             try
             {

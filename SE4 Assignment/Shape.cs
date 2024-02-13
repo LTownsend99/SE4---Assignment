@@ -2,7 +2,7 @@
 {
     abstract public class Shape : Command
     {
-        protected Shape(string[] array) : base(array)
+        protected Shape(string[] array ) : base(array)
         {
         }
 

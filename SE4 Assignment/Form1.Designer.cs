@@ -40,6 +40,7 @@
             runButton = new Button();
             syntaxButton = new Button();
             Terminal = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)drawingBox).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -84,7 +85,7 @@
             // 
             openToolStripMenuItem.Image = (Image)resources.GetObject("openToolStripMenuItem.Image");
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(224, 26);
+            openToolStripMenuItem.Size = new Size(128, 26);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
@@ -149,11 +150,23 @@
             Terminal.Size = new Size(908, 229);
             Terminal.TabIndex = 6;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Location = new Point(377, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(33, 28);
+            button1.TabIndex = 7;
+            button1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(932, 861);
+            Controls.Add(button1);
             Controls.Add(Terminal);
             Controls.Add(syntaxButton);
             Controls.Add(runButton);
@@ -184,5 +197,6 @@
         private Button syntaxButton;
         private TextBox Terminal;
         private ToolStripMenuItem newToolStripMenuItem;
+        private Button button1;
     }
 }

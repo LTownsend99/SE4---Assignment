@@ -4,13 +4,12 @@
     {
         protected string[] parameters;
         protected int noOfParameters;
-        Draw draw;
 
         public Command(String[] array)
         {
             parameters = array;
         }
-        virtual public void runCommand()
+        virtual public void runCommand(Draw draw)
         {
             if (parameters.Length != noOfParameters)
             {

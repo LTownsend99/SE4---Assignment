@@ -4,30 +4,55 @@
     {
         Pen pen;
         SolidBrush brush;
-        Graphics g;
         Color colour = Color.Black;
-        int xPos;
-        int yPos;
+        int xPos = 0;
+        int yPos = 0;
+        Bitmap bitmap;
+        PictureBox drawingBox;
+        bool fill = false;
 
-        public Draw(Graphics g)
+        public Draw(PictureBox drawingBox)
         {
-            this.g = g;
-            xPos = 0;
-            yPos = 0;
+          this.drawingBox = drawingBox;
+          bitmap = new Bitmap(drawingBox.Width, drawingBox.Height);
+          pen = new Pen(colour);
+          brush = new SolidBrush(colour);
 
         }
 
         public void drawCircle(int radius)
         {
-            pen.Color = colour;
-            g.DrawEllipse(pen, xPos, yPos, radius * 2, radius * 2);
+            using Graphics g = Graphics.FromImage(bitmap);
+            if(fill)
+            {
+                g.FillEllipse(brush, xPos, yPos, radius * 2, radius * 2);
+
+            }else
+            {
+                g.DrawEllipse(pen, xPos, yPos, radius *2, radius * 2);
+            }
+
+            drawingBox.Image = bitmap;
         }
 
-        public void fillCircle(int radius)
+        public void drawRectangle(int width, int height)
         {
-            brush = new(colour);
+            using Graphics g = Graphics.FromImage(bitmap);
 
-            g.FillEllipse(brush, xPos, yPos, radius * 2, radius * 2);
+            if(fill)
+            {
+                g.FillRectangle(brush, xPos, yPos, width, height);
+            }else
+            {
+                g.DrawRectangle(pen, xPos, yPos, width, height);
+            }
+            
+            drawingBox.Image = bitmap;
+        }
+
+        public void drawFill(bool fill)
+        {
+            this.fill = fill;
         }
     }
 }

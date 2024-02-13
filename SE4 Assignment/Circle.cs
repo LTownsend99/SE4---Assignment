@@ -6,9 +6,9 @@
 
         public Circle(string[] array) : base(array) { noOfParameters = 1; }
 
-        public override void runCommand()
+        public override void runCommand(Draw draw)
         {
-            base.runCommand();
+            base.runCommand(draw);
 
             try
             {
@@ -25,7 +25,7 @@
                 throw new ArgumentException("Invalid data - Provided a Negative Number when Radius should be Positive");
             }
 
-
+            draw.drawCircle(radius);
 
         }
 

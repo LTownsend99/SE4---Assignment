@@ -2,13 +2,14 @@ namespace SE4_Assignment
 {
     public partial class Form1 : Form
     {
-        Bitmap bitmap;
+
+        Draw draw;
         public Form1()
         {
-            bitmap = new Bitmap(640, 480);
+
             InitializeComponent();
 
-
+            draw = new Draw(drawingBox);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace SE4_Assignment
             {
                 Command command = shapeFactory.proccessCommand(commandText);
 
-                command.runCommand();
+                command.runCommand(draw);
             }
             catch (Exception ex)
             {
