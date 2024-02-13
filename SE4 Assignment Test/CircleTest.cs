@@ -44,6 +44,7 @@ namespace SE4_Assignment_Test
 
         }
 
+        [TestMethod]
         public void TestValidCircleParameters()
         {
             string parameters = "CIRCLE 50";

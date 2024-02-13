@@ -50,6 +50,7 @@ namespace SE4_Assignment_Test
 
         }
 
+        [TestMethod]
         public void TestValidTriangleParameters()
         {
             string parameters = "TRIANGLE 10 20";

@@ -3,21 +3,21 @@
 namespace SE4_Assignment_Test
 {
     [TestClass]
-    public class RectangleTest
+    public class MoveToTest
     {
         [DataTestMethod]
-        [DataRow("RECTANGLE", "-50,20")]
-        [DataRow("RECTANGLE", "50,-20")]
-        [DataRow("RECTANGLE", "10,20,30,40")]
-        [DataRow("RECTANGLE", "abc")]
-        public void TestInvalidRectangleParameters(string shapeCommand, string parameters)
+        [DataRow("MOVETO", "-50,20")]
+        [DataRow("MOVETO", "50,-20")]
+        [DataRow("MOVETO", "10,20,30")]
+        [DataRow("MOVETO", "abc")]
+        public void TestInvalidMoveToParameters(string shapeCommand, string parameters)
         {
             try
             {
 
                 string[] param = parameters.Split(',');
 
-                Rectangle rectangle = new Rectangle(param);
+                MoveTo moveTo = new MoveTo(param);
             }
             catch (Exception ex)
             {
@@ -27,11 +27,11 @@ namespace SE4_Assignment_Test
                     {
                         return;
                     }
-                    else if (ex.Equals("Invalid data - Provided a Negative Number when Width should be Positive"))
+                    else if (ex.Equals("Invalid data - Provided a Negative Number when x should be Positive"))
                     {
                         return;
                     }
-                    else if (ex.Equals("Invalid data - Provided a Negative Number when Height should be Positive"))
+                    else if (ex.Equals("Invalid data - Provided a Negative Number when y should be Positive"))
                     {
                         return;
                     }
@@ -50,16 +50,16 @@ namespace SE4_Assignment_Test
         }
 
         [TestMethod]
-        public void TestValidRectangleParameters()
+        public void TestValidMoveToParameters()
         {
-            string parameters = "RECTANGLE 10 20";
+            string parameters = "MOVETO 10 20";
 
             shapeFactory shapeFactory = new shapeFactory();
 
             try
             {
                 string[] param = parameters.Split(' ');
-                Rectangle rectangle = new Rectangle(param);
+                DrawTo drawTo = new DrawTo(param);
             }
             catch (Exception ex)
             {
@@ -67,5 +67,6 @@ namespace SE4_Assignment_Test
             }
 
         }
+
     }
 }
