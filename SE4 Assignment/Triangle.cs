@@ -26,6 +26,8 @@
             // throws an exception if the height or width isnt positive 
             if (width <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when Width should be Positive"); }
             if (height <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when Height should be Positive"); }
+
+            draw.drawTriangle(width, height);
         }
     }
 }

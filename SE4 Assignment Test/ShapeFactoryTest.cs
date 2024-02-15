@@ -22,6 +22,9 @@ namespace SE4_Assignment_Test
         [DataRow("TRIANGLE", "3,4")] // Valid triangle command
         [DataRow("MOVETO", "10,5")] // Valid moveTo command
         [DataRow("DRAWTO", "25,30")] // Valid drawTo command
+        [DataRow("FILL", "ON")] // Valid fill command
+        [DataRow("CLEAR", "")] // Valid clear command
+        [DataRow("RESET", "")] // Valid reset command
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
 

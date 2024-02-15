@@ -22,6 +22,7 @@
             }
             else
             {
+                // Throws an exception if an ineligible phrase is passed in 
                 throw new ArgumentException("Invalid data - Provided a ineligible phrase");
             }
 

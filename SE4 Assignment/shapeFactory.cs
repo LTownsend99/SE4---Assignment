@@ -5,8 +5,8 @@
 
         public static Command proccessCommand(String instruction)
         {
+            instruction = instruction.ToUpper();
             String commandName = instruction.Split(' ')[0];
-            commandName = commandName.ToUpper().Trim();
 
             String[] parameters = instruction.Split(' ').Skip(1).ToArray();
 
@@ -24,6 +24,10 @@
                     return new DrawTo(parameters);
                 case "FILL":
                     return new Fill(parameters);
+                case "CLEAR":
+                    return new Clear(parameters);
+                case "RESET":
+                    return new Reset(parameters);
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

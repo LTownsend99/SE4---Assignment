@@ -51,6 +51,8 @@ namespace SE4_Assignment
             commandBox.Clear();
             commandLine.Clear();
             // Clears the drawing panel
+            drawingBox.Image = null;
+            drawingBox.Update();
         }
 
         private void drawingBox_Paint(object sender, PaintEventArgs e)

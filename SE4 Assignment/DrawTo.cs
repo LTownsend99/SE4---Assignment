@@ -1,6 +1,6 @@
 ﻿namespace SE4_Assignment
 {
-    public class DrawTo : Command
+    public class DrawTo : Shape
     {
 
         protected int x;
@@ -29,7 +29,7 @@
             if (x <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when x should be Positive"); }
             if (y <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when y should be Positive"); }
 
-
+            draw.drawTo(x, y);
         }
     }
 }
