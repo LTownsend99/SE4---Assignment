@@ -40,7 +40,7 @@
             runButton = new Button();
             syntaxButton = new Button();
             Terminal = new TextBox();
-            button1 = new Button();
+            runProgram = new Button();
             ((System.ComponentModel.ISupportInitialize)drawingBox).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -77,7 +77,7 @@
             // 
             newToolStripMenuItem.Image = (Image)resources.GetObject("newToolStripMenuItem.Image");
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(224, 26);
+            newToolStripMenuItem.Size = new Size(128, 26);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
@@ -138,6 +138,7 @@
             syntaxButton.TabIndex = 5;
             syntaxButton.Text = "Syntax";
             syntaxButton.UseVisualStyleBackColor = false;
+            syntaxButton.Click += syntaxButton_Click;
             // 
             // Terminal
             // 
@@ -150,23 +151,26 @@
             Terminal.Size = new Size(908, 229);
             Terminal.TabIndex = 6;
             // 
-            // button1
+            // runProgram
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(377, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(33, 28);
-            button1.TabIndex = 7;
-            button1.UseVisualStyleBackColor = false;
+            runProgram.BackColor = SystemColors.MenuBar;
+            runProgram.BackgroundImage = (Image)resources.GetObject("runProgram.BackgroundImage");
+            runProgram.BackgroundImageLayout = ImageLayout.Stretch;
+            runProgram.FlatAppearance.BorderSize = 0;
+            runProgram.FlatStyle = FlatStyle.Flat;
+            runProgram.Location = new Point(377, 0);
+            runProgram.Name = "runProgram";
+            runProgram.Size = new Size(26, 28);
+            runProgram.TabIndex = 7;
+            runProgram.UseVisualStyleBackColor = false;
+            runProgram.Click += runProgram_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(932, 861);
-            Controls.Add(button1);
+            Controls.Add(runProgram);
             Controls.Add(Terminal);
             Controls.Add(syntaxButton);
             Controls.Add(runButton);
@@ -197,6 +201,6 @@
         private Button syntaxButton;
         private TextBox Terminal;
         private ToolStripMenuItem newToolStripMenuItem;
-        private Button button1;
+        private Button runProgram;
     }
 }

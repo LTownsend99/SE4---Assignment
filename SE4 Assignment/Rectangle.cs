@@ -29,7 +29,7 @@
             if (width <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when Width should be Positive"); }
             if (height <= 0) { throw new ArgumentException("Invalid data - Provided a Negative Number when Height should be Positive"); }
 
-            draw.drawRectangle(width,height);
+            draw.drawRectangle(width, height);
 
         }
 

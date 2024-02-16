@@ -25,6 +25,7 @@ namespace SE4_Assignment_Test
         [DataRow("FILL", "ON")] // Valid fill command
         [DataRow("CLEAR", "")] // Valid clear command
         [DataRow("RESET", "")] // Valid reset command
+        [DataRow("COLOUR", "216, 173, 230")] // Valid colour command
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
 

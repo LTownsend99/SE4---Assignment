@@ -1,6 +1,6 @@
 ﻿namespace SE4_Assignment
 {
-    public class Fill : Command
+    public class Fill : Shape
     {
         protected bool fill;
         public Fill(string[] array) : base(array)
@@ -12,7 +12,7 @@
         {
             base.runCommand(draw);
 
-            if (parameters[0].Equals("ON")) 
+            if (parameters[0].Equals("ON"))
             {
                 fill = true;
             }

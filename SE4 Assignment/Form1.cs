@@ -57,7 +57,7 @@ namespace SE4_Assignment
 
         private void drawingBox_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -66,15 +66,58 @@ namespace SE4_Assignment
 
             try
             {
-                Command command = shapeFactory.proccessCommand(commandText);
+                Command command = shapeFactory.proccessCommand(commandText);    //  passes the commmand from the command line
 
-                command.runCommand(draw);
+                command.runCommand(draw);       //  proccesses the commmand
             }
             catch (Exception ex)
             {
-                Terminal.Text = ex.Message;
+                Terminal.Text += ex.Message + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
             }
             commandLine.Text = "";
+        }
+
+        private void runProgram_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < commandBox.Lines.Length; i++)       // loops through the lines in the commandBox
+            {
+                string line = commandBox.Lines[i];
+                try
+                {
+                    Command command = shapeFactory.proccessCommand(line);       //  passes the commmand from the line
+
+                    command.runCommand(draw);       //  proccesses the commmand
+                }
+                catch (Exception ex)
+                {
+                    Terminal.Text += ex.Message + " For Command: " + line + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
+                }
+            }
+
+        }
+
+        private void syntaxButton_Click(object sender, EventArgs e)
+        {
+            draw.drawEnabled = false;       // turns drawing off so just the validation is run
+
+            for (int i = 0; i < commandBox.Lines.Length; i++)       // loops through the lines in the commandBox
+            {
+
+                string line = commandBox.Lines[i];
+                try
+                {
+                    Command command = shapeFactory.proccessCommand(line);       //  passes the commmand from the line
+
+                    command.runCommand(draw);       //  proccesses the commmand
+                }
+                catch (Exception ex)
+                {
+                    Terminal.Text += ex.Message + " For Command: " + line + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
+                }
+            }
+
+            draw.drawEnabled = true;        // turns drawing back on 
         }
     }
 }

@@ -22,6 +22,10 @@
                     return new MoveTo(parameters);
                 case "DRAWTO":
                     return new DrawTo(parameters);
+                case "COLOURRGB":
+                    return new ColourRGB(parameters);
+                case "COLOUR":
+                    return new Colour(parameters);
                 case "FILL":
                     return new Fill(parameters);
                 case "CLEAR":
