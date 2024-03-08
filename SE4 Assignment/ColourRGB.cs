@@ -19,30 +19,11 @@
             string tempBlue;
             string tempGreen;
 
-            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
-            {
-                tempRed = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                tempRed = parameters[0];      // if it isnt referenced sets tempRed to the parameter passed
-            }
-            if (varStorage.GetVariable(parameters[1]) != null)      // checks if variable is referenced
-            {
-                tempGreen = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                tempGreen = parameters[0];      // if it isnt referenced sets tempGreen to the parameter passed
-            }
-            if (varStorage.GetVariable(parameters[2]) != null)      // checks if variable is referenced
-            {
-                tempBlue = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                tempBlue = parameters[0];      // if it isnt referenced sets tempBlue to the parameter passed
-            }
+
+            tempRed = varStorage.GetVariableOrDefault(parameters[0]);
+            tempGreen = varStorage.GetVariableOrDefault(parameters[1]);
+            tempBlue = varStorage.GetVariableOrDefault(parameters[2]);
+
 
             try
             {

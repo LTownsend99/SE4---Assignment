@@ -8,6 +8,8 @@ namespace SE4_Assignment_Test
         [DataTestMethod]
         [DataRow("VAR", "count 40")]
         [DataRow("VAR", "count")]
+        [DataRow("VAR", "c = + 2 3")]
+        [DataRow("VAR", "c = 2 -")]
         public void TestInvalidVarParameters(string shapeCommand, string parameters)
         {
             try
@@ -35,11 +37,15 @@ namespace SE4_Assignment_Test
 
         }
 
-        [TestMethod]
-        public void TestValidResetParameters()
-        {
-            string parameters = "VAR size = 50";
+        [DataTestMethod]
+        [DataRow("VAR", "size = 50")]
+        [DataRow("VAR", "a = 5 + 6")]
+        [DataRow("VAR", "a = 5 - 6")]
+        [DataRow("VAR", "a = 5 * 6")]
+        [DataRow("VAR", "a = 5 / 6")]
 
+        public void TestValidVarParameters(string shapeCommand, string parameters)
+        {
             try
             {
                 string[] param = parameters.Split(' ');

@@ -12,14 +12,7 @@
 
             string value;
 
-            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
-            {
-                value = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                value = parameters[0];      // if it isnt referenced sets value to the parameter passed
-            }
+            value = varStorage.GetVariableOrDefault(parameters[0]);
 
             try
             {

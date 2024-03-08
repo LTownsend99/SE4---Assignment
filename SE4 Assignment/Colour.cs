@@ -14,14 +14,8 @@
             base.runCommand(draw, varStorage);
             Color colour;
 
-            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
-            {
-                name = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                name = parameters[0];                // if it isnt referenced sets name to the parameter passed
-            }
+            name = varStorage.GetVariableOrDefault(parameters[0]);
+
             try
             {
                 colour = Color.FromName(name);  //tries to set to the colour with that name provided

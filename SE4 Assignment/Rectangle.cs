@@ -18,22 +18,10 @@
             string tempW;
             string tempH;
 
-            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
-            {
-                tempW = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                tempW = parameters[0];                // if it isnt referenced sets tempW to the parameter passed
-            }
-            if (varStorage.GetVariable(parameters[1]) != null)      // checks if variable is referenced
-            {
-                tempH = varStorage.GetVariable(parameters[0]);
-            }
-            else
-            {
-                tempH = parameters[0];                // if it isnt referenced sets tempH to the parameter passed
-            }
+            tempW = varStorage.GetVariableOrDefault(parameters[0]);
+
+            tempH = varStorage.GetVariableOrDefault(parameters[1]);
+
 
             try
             {
