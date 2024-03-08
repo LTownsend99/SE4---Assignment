@@ -49,8 +49,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "CIRCLE 50";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

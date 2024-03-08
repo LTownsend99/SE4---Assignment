@@ -43,7 +43,6 @@ namespace SE4_Assignment_Test
         public void TestValidFillParameters()
         {
             string parameters = "FILL ON";
-            shapeFactory shapeFactory = new shapeFactory();
 
             try
             {

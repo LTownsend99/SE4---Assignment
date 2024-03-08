@@ -59,8 +59,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "COLOUR 173 216 230";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

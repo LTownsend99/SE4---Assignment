@@ -40,8 +40,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "VAR size = 50";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

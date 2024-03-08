@@ -54,8 +54,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "DRAWTO 10 20";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

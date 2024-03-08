@@ -54,8 +54,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "MOVETO 10 20";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

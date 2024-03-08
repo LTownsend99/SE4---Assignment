@@ -38,8 +38,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "CLEAR";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');

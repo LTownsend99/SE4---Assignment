@@ -37,8 +37,6 @@ namespace SE4_Assignment_Test
         {
             string parameters = "RESET";
 
-            shapeFactory shapeFactory = new shapeFactory();
-
             try
             {
                 string[] param = parameters.Split(' ');
