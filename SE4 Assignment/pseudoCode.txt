@@ -1,0 +1,36 @@
+-- will turn drawing off when declaring methods and variables 
+
+run program/ run command button pressed
+
+reads the program line by line 
+
+ for (int i = 0; i < commandBox.Lines.Length; i++)       // loops through the lines in the commandBox
+            {
+                string line = commandBox.Lines[i];
+                try
+                {
+                    Command command = shapeFactory.proccessCommand(line);       //  passes the commmand from the line
+
+                    command.runCommand(draw);       //  proccesses the commmand
+                }
+                catch (Exception ex)
+                {
+                    Terminal.Text += ex.Message + " For Command: " + line + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
+                }
+            }
+
+if(line[0] == METHOD)
+ {
+     drawEnabled = false; 
+   
+   
+ }
+
+ if(line[0] == VAR)
+ {
+     drawEnabled = false; 
+   
+   
+ }
+
+

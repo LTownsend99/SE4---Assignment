@@ -11,14 +11,34 @@
             noOfParameters = 2;
         }
 
-        public override void runCommand(Draw draw)
+        public override void runCommand(Draw draw, VarStorage varStorage)
         {
-            base.runCommand(draw);
+            base.runCommand(draw, varStorage);
+
+            string tempW;
+            string tempH;
+
+            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
+            {
+                tempW = varStorage.GetVariable(parameters[0]);
+            }
+            else
+            {
+                tempW = parameters[0];                // if it isnt referenced sets tempW to the parameter passed
+            }
+            if (varStorage.GetVariable(parameters[1]) != null)      // checks if variable is referenced
+            {
+                tempH = varStorage.GetVariable(parameters[0]);
+            }
+            else
+            {
+                tempH = parameters[0];                // if it isnt referenced sets tempH to the parameter passed
+            }
 
             try
             {
-                width = int.Parse(parameters[0]);   // tries to parse the width as an int if not then an exception is thrown
-                height = int.Parse(parameters[1]);  // tries to parse the height as an int if not then an exception is thrown
+                width = int.Parse(tempW);   // tries to parse the width as an int if not then an exception is thrown
+                height = int.Parse(tempH);  // tries to parse the height as an int if not then an exception is thrown
             }
             catch (FormatException e)
             {

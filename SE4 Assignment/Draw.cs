@@ -64,24 +64,24 @@
         public void drawTriangle(int width, int height)
         {
             if (drawEnabled)
-            { 
-            using Graphics g = Graphics.FromImage(bitmap);
-
-            Point p1 = new Point(xPos, height);
-            Point p2 = new Point(width / 2, yPos);
-            Point p3 = new Point(width, height);
-
-
-            if (fill)
             {
-                g.FillPolygon(brush, new Point[] { p1, p2, p3 });
-            }
-            else
-            {
-                g.DrawPolygon(pen, new Point[] { p1, p2, p3 });
-            }
+                using Graphics g = Graphics.FromImage(bitmap);
 
-            drawingBox.Image = bitmap;
+                Point p1 = new Point(xPos, height);
+                Point p2 = new Point(width / 2, yPos);
+                Point p3 = new Point(width, height);
+
+
+                if (fill)
+                {
+                    g.FillPolygon(brush, new Point[] { p1, p2, p3 });
+                }
+                else
+                {
+                    g.DrawPolygon(pen, new Point[] { p1, p2, p3 });
+                }
+
+                drawingBox.Image = bitmap;
             }
         }
 
@@ -113,7 +113,7 @@
         {
             if (drawEnabled)
             {
-                colour = Color.FromArgb(red, green , blue);
+                colour = Color.FromArgb(red, green, blue);
                 pen.Color = colour;
                 brush.Color = colour;
             }

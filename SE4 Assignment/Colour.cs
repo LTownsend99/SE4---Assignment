@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace SE4_Assignment
+﻿namespace SE4_Assignment
 {
     public class Colour : Shape
     {
@@ -12,13 +9,21 @@ namespace SE4_Assignment
             noOfParameters = 1;
         }
 
-        public override void runCommand(Draw draw)
+        public override void runCommand(Draw draw, VarStorage varStorage)
         {
-            base.runCommand(draw);
+            base.runCommand(draw, varStorage);
             Color colour;
-            name  = parameters[0];
+
+            if (varStorage.GetVariable(parameters[0]) != null)      // checks if variable is referenced
+            {
+                name = varStorage.GetVariable(parameters[0]);
+            }
+            else
+            {
+                name = parameters[0];                // if it isnt referenced sets name to the parameter passed
+            }
             try
-            {       
+            {
                 colour = Color.FromName(name);  //tries to set to the colour with that name provided
             }
             catch (Exception e)

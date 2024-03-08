@@ -8,9 +8,9 @@
             noOfParameters = 1;
         }
 
-        public override void runCommand(Draw draw)
+        public override void runCommand(Draw draw, VarStorage varStorage)
         {
-            base.runCommand(draw);
+            base.runCommand(draw, varStorage);
 
             if (parameters[0].Equals("ON"))
             {

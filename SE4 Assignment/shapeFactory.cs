@@ -32,6 +32,8 @@
                     return new Clear(parameters);
                 case "RESET":
                     return new Reset(parameters);
+                case "VAR":
+                    return new Var(parameters);
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

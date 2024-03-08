@@ -4,5 +4,19 @@ FILL ON
 COLOUR 173 216 230
 RECTANGLE 200 100
 MOVETO 250 350
-COLOUR 0 255 0
+COLOUR blue
 TRIANGLE 90 100
+
+
+VAR size = 50
+VAR red = 200
+VAR green = 150
+VAR blue = 100
+VAR colour = red
+
+VAR width = 50
+VAR height = 100
+RECTANGLE width height
+FILL ON
+COLOURRGB 173 216 230
+TRIANGLE width height

@@ -160,7 +160,7 @@
             runProgram.FlatStyle = FlatStyle.Flat;
             runProgram.Location = new Point(377, 0);
             runProgram.Name = "runProgram";
-            runProgram.Size = new Size(26, 28);
+            runProgram.Size = new Size(25, 28);
             runProgram.TabIndex = 7;
             runProgram.UseVisualStyleBackColor = false;
             runProgram.Click += runProgram_Click;

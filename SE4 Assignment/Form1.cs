@@ -4,6 +4,7 @@ namespace SE4_Assignment
     {
 
         Draw draw;
+        VarStorage varStorage = new VarStorage();
         public Form1()
         {
 
@@ -68,7 +69,7 @@ namespace SE4_Assignment
             {
                 Command command = shapeFactory.proccessCommand(commandText);    //  passes the commmand from the command line
 
-                command.runCommand(draw);       //  proccesses the commmand
+                command.runCommand(draw, varStorage);       //  proccesses the commmand
             }
             catch (Exception ex)
             {
@@ -87,7 +88,7 @@ namespace SE4_Assignment
                 {
                     Command command = shapeFactory.proccessCommand(line);       //  passes the commmand from the line
 
-                    command.runCommand(draw);       //  proccesses the commmand
+                    command.runCommand(draw, varStorage);       //  proccesses the commmand
                 }
                 catch (Exception ex)
                 {
@@ -109,7 +110,7 @@ namespace SE4_Assignment
                 {
                     Command command = shapeFactory.proccessCommand(line);       //  passes the commmand from the line
 
-                    command.runCommand(draw);       //  proccesses the commmand
+                    command.runCommand(draw, varStorage);       //  proccesses the commmand
                 }
                 catch (Exception ex)
                 {
