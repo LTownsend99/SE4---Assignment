@@ -3,21 +3,21 @@
 namespace SE4_Assignment_Test
 {
     [TestClass]
-    public class VarTest
+    public class IfTest
     {
         [DataTestMethod]
-        [DataRow("VAR", "count 40")]
-        [DataRow("VAR", "count")]
-        [DataRow("VAR", "c = + 2 3")]
-        [DataRow("VAR", "c = 2 -")]
-        public void TestInvalidVarParameters(string shapeCommand, string parameters)
+        [DataRow("IF", "A + B ")]
+        [DataRow("IF", "A")]
+        [DataRow("IF", "c = + 2 3")]
+        [DataRow("IF", "")]
+        public void TestInvalidIfParameters(string shapeCommand, string parameters)
         {
             try
             {
 
                 string[] param = parameters.Split(',');
 
-                Var var = new Var(param);
+                IF i = new IF(param);
             }
             catch (Exception ex)
             {
@@ -28,6 +28,10 @@ namespace SE4_Assignment_Test
                         return;
                     }
                     if (ex.Equals("Invalid Data - Cannot convert to Integer"))
+                    {
+                        return;
+                    }
+                    if (ex.Equals("Invalid Data - Cannot Process inline Command"))
                     {
                         return;
                     }
@@ -43,18 +47,18 @@ namespace SE4_Assignment_Test
         }
 
         [DataTestMethod]
-        [DataRow("VAR", "size = 50")]
-        [DataRow("VAR", "a = 5 + 6")]
-        [DataRow("VAR", "a = 5 - 6")]
-        [DataRow("VAR", "a = 5 * 6")]
-        [DataRow("VAR", "a = 5 / 6")]
+        [DataRow("IF", "50 < 100 CIRCLE 100")]
+        [DataRow("IF", "50 > 100 CIRCLE 100")]
+        [DataRow("IF", "50 <= 100 CIRCLE 100")]
+        [DataRow("IF", "50 >= 100 RECTANGLE 100 50")]
+        [DataRow("IF", "50 == 100 TRIANGLE 100 100")]
 
-        public void TestValidVarParameters(string shapeCommand, string parameters)
+        public void TestValidIfParameters(string shapeCommand, string parameters)
         {
             try
             {
                 string[] param = parameters.Split(' ');
-                Var var = new Var(param);
+                IF i = new IF(param);
             }
             catch (Exception ex)
             {

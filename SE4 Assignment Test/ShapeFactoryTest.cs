@@ -25,7 +25,11 @@ namespace SE4_Assignment_Test
         [DataRow("FILL", "ON")] // Valid fill command
         [DataRow("CLEAR", "")] // Valid clear command
         [DataRow("RESET", "")] // Valid reset command
-        [DataRow("COLOUR", "216, 173, 230")] // Valid colour command
+        [DataRow("COLOURRGB", "216, 173, 230")] // Valid colourRGB command
+        [DataRow("COLOUR", "red")] // Valid colour command
+        [DataRow("VAR", "a = 100")] // Valid colour command
+        [DataRow("IF", "a == b CIRCLE 100")] // Valid colour command
+
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
 
