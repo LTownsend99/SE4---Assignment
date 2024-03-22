@@ -9,10 +9,11 @@ namespace SE4_Assignment_Test
         public void TestInvalidCommandName()
         {
             string commandName = "SQUARE";
+            int noOfLines = 1;
 
             shapeFactory shapeFactory = new shapeFactory();
 
-            Assert.ThrowsException<Exception>(() => shapeFactory.proccessCommand(commandName), ("Invalid Command Word " + commandName));
+            Assert.ThrowsException<Exception>(() => shapeFactory.processCommand(commandName, noOfLines), ("Invalid Command Word " + commandName));
 
         }
 
@@ -27,17 +28,19 @@ namespace SE4_Assignment_Test
         [DataRow("RESET", "")] // Valid reset command
         [DataRow("COLOURRGB", "216, 173, 230")] // Valid colourRGB command
         [DataRow("COLOUR", "red")] // Valid colour command
-        [DataRow("VAR", "a = 100")] // Valid colour command
-        [DataRow("IF", "a == b CIRCLE 100")] // Valid colour command
+        [DataRow("VAR", "a = 100")] // Valid VAR command
+        [DataRow("IF", "a == b CIRCLE 100")] // Valid IF command
+        [DataRow("IF", "A < B MOVETO; 50 100 CIRCLE; 100 ENDIF;")] // Valid IF command
 
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
+            int noOfLines = 1;
 
             shapeFactory shapeFactory = new shapeFactory();
 
             try
             {
-                shapeFactory.proccessCommand(shapeCommand + " " + parameters);
+                shapeFactory.processCommand(shapeCommand + " " + parameters, noOfLines);
 
             }
             catch (Exception ex)

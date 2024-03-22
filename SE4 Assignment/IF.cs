@@ -8,27 +8,44 @@ namespace SE4_Assignment
         protected int num1;
         protected int num2;
         protected bool check;
+        protected int noOfLines;
+        protected string tempIns;
 
-        public IF(string[] array) : base(array)
+        public IF(string[] array, int noOfLines) : base(array)
         {
-
+            this.noOfLines = noOfLines;
         }
 
         public override void runCommand(Draw draw, VarStorage varStorage)
         {
-            if (parameters.Length == 5)
+            
+            if (parameters[parameters.Length - 1] != "ENDIF;")
             {
-                instruction = parameters[3] + " " + parameters[4];
+                // Checks the number of parameters and adds to the string instruction 
+                if (parameters.Length == 5)
+                {
+                    instruction = parameters[3] + " " + parameters[4];
+                }
+                else if (parameters.Length == 6)
+                {
+                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5];
+                }
+                else if (parameters.Length == 7)
+                {
+                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5] + " " + parameters[6];
+                }
             }
-            else if(parameters.Length == 6)
+            else  
             {
-                instruction = parameters[3] + " " + parameters[4] + " " + parameters[5];
-            }
-            else if (parameters.Length == 7)
-            {
-                instruction = parameters[3] + " " + parameters[4] + " " + parameters[5] + " " + parameters[6];
-            }
+                for (int i = 3; i < parameters.Length; i++) 
+                { 
+                    //creates a string with all the parameters in
+                    tempIns += parameters[i] + " "; 
+                }
+            } 
+            
 
+            // checks the operator of the IF statement and calls the relevant method
             switch (parameters[1])
             {
                 case "<":
@@ -52,15 +69,69 @@ namespace SE4_Assignment
 
             if (check == true)
             {
-                try
+                // if tempins is not used then the line can be processed as normal 
+                if (tempIns == null)
                 {
-                    Command command = shapeFactory.proccessCommand(instruction);       //  passes the commmand from the line
+                    try
+                    {
+                        Command command = shapeFactory.processCommand(instruction, noOfLines);       //  passes the commmand from the line
 
-                    command.runCommand(draw, varStorage);       //  proccesses the commmand
+                        command.runCommand(draw, varStorage);       //  proccesses the commmand
+                    }
+                    catch (Exception e)
+                    {
+                        throw new ArgumentException("Invalid Data - Cannot Process inline Command");
+                    }
                 }
-                catch (Exception e)
+                else  
                 {
-                    throw new ArgumentException("Invalid Data - Cannot Process inline Command");
+                    //splits the commands out again 
+                    string[] temp = tempIns.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                    List<string> instructions = new List<string>();
+
+                    string currentCommand = "";
+
+                    //goes through and creates an instruction. Every time there is a ; its the start of a new instruction
+                    foreach(string line in temp) 
+                    {
+
+                        if (line.EndsWith(";"))
+                        {
+                            instructions.Add(currentCommand.Trim());
+
+                            currentCommand = line.Trim(';');
+
+                        }
+                        else
+                        {
+                            currentCommand += " " + line;
+                        }
+                    }
+
+                    instructions.Add(currentCommand.Trim());
+
+                    // removes the empty string at the start of the list
+                    IEnumerable<string> skippedList = instructions.Skip(1);
+
+                    // goes through each instuction and process the command
+                    foreach (string inst  in skippedList)
+                    {
+                        if (inst != "ENDIF")
+                        {
+                            try
+                            {
+                                Command command = shapeFactory.processCommand(inst, noOfLines);       //  passes the commmand from the line
+
+                                command.runCommand(draw, varStorage);       //  proccesses the commmand
+                            }
+                            catch (Exception e)
+                            {
+                                throw new ArgumentException("Invalid Data - Cannot Process inline Command");
+                            }
+                        }
+                    }
+
                 }
             }
         }

@@ -3,7 +3,7 @@
     public class shapeFactory
     {
 
-        public static Command proccessCommand(String instruction)
+        public static Command processCommand(String instruction, int noOfLines)
         {
             instruction = instruction.ToUpper();
             String commandName = instruction.Split(' ')[0];
@@ -35,7 +35,9 @@
                 case "VAR":
                     return new Var(parameters);
                 case "IF":
-                    return new IF(parameters);
+                    return new IF(parameters, noOfLines);
+                case "ENDIF":
+                    return null;
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

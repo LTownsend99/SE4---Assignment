@@ -16,8 +16,9 @@ namespace SE4_Assignment_Test
             {
 
                 string[] param = parameters.Split(',');
+                int noOfLines = 1;
 
-                IF i = new IF(param);
+                IF i = new IF(param, noOfLines);
             }
             catch (Exception ex)
             {
@@ -52,13 +53,16 @@ namespace SE4_Assignment_Test
         [DataRow("IF", "50 <= 100 CIRCLE 100")]
         [DataRow("IF", "50 >= 100 RECTANGLE 100 50")]
         [DataRow("IF", "50 == 100 TRIANGLE 100 100")]
+        [DataRow("IF", "A < B MOVETO; 50 100 CIRCLE; 100 ENDIF;")]
+
 
         public void TestValidIfParameters(string shapeCommand, string parameters)
         {
             try
             {
                 string[] param = parameters.Split(' ');
-                IF i = new IF(param);
+                int noOfLines = 1;
+                IF i = new IF(param, noOfLines);
             }
             catch (Exception ex)
             {
