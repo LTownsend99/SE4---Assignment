@@ -1,15 +1,15 @@
 ﻿namespace SE4_Assignment
 {
-    public class IF : Shape
+    public class While : Shape
     {
-        protected string instruction = "";
-        protected int num1;
-        protected int num2;
-        protected bool check;
+        //  WHILE A < B 1 
         protected int noOfLines;
         protected string tempIns;
+        protected bool check;
+        protected int num1;
+        protected int num2;
 
-        public IF(string[] array, int noOfLines) : base(array)
+        public While(string[] array, int noOfLines) : base(array)
         {
             this.noOfLines = noOfLines;
         }
@@ -17,29 +17,11 @@
         public override void runCommand(Draw draw, VarStorage varStorage)
         {
 
-            if (parameters[parameters.Length - 1] != "ENDIF;")
+
+            for (int i = 3; i < parameters.Length; i++)
             {
-                // Checks the number of parameters and adds to the string instruction 
-                if (parameters.Length == 5)
-                {
-                    instruction = parameters[3] + " " + parameters[4];
-                }
-                else if (parameters.Length == 6)
-                {
-                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5];
-                }
-                else if (parameters.Length == 7)
-                {
-                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5] + " " + parameters[6];
-                }
-            }
-            else
-            {
-                for (int i = 3; i < parameters.Length; i++)
-                {
-                    //creates a string with all the parameters in
-                    tempIns += parameters[i] + " ";
-                }
+                //creates a string with all the parameters in
+                tempIns += parameters[i] + " ";
             }
 
 
@@ -67,22 +49,7 @@
 
             if (check == true)
             {
-                // if tempins is not used then the line can be processed as normal 
-                if (tempIns == null)
-                {
-                    try
-                    {
-                        Command command = shapeFactory.processCommand(instruction, noOfLines);       //  passes the commmand from the line
-
-                        command.runCommand(draw, varStorage);       //  proccesses the commmand
-                    }
-                    catch (Exception e)
-                    {
-                        throw new ArgumentException("Invalid Data - Cannot Process inline Command");
-                    }
-                }
-                else
-                {
+                
                     //splits the commands out again 
                     string[] temp = tempIns.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
@@ -115,7 +82,7 @@
                     // goes through each instuction and process the command
                     foreach (string inst in instructionList)
                     {
-                        if (inst != "ENDIF")
+                        if (inst != "ENDWHILE")
                         {
                             try
                             {
@@ -128,14 +95,13 @@
                                 throw new ArgumentException("Invalid Data - Cannot Process inline Command");
                             }
                         }
-                        else
-                        {
-                            continue;
-                        }
                     }
 
-                }
+                
             }
+
+
+
         }
 
         private bool greaterThan(string number1, string number2, VarStorage varStorage)

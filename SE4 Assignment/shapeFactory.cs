@@ -36,7 +36,11 @@
                     return new Var(parameters);
                 case "IF":
                     return new IF(parameters, noOfLines);
+                case "WHILE":
+                    return new While(parameters, noOfLines);
                 case "ENDIF":
+                    return null;
+                case "ENDWHILE":
                     return null;
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
