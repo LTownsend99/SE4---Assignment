@@ -3,9 +3,9 @@
     public class shapeFactory
     {
 
-        public static Command processCommand(String instruction, int noOfLines)
+        public static Command processCommand(String instruction)
         {
-            instruction = instruction.ToUpper();
+            instruction = instruction.ToUpper().Trim();
             String commandName = instruction.Split(' ')[0];
 
             String[] parameters = instruction.Split(' ').Skip(1).ToArray();
@@ -35,13 +35,13 @@
                 case "VAR":
                     return new Var(parameters);
                 case "IF":
-                    return new IF(parameters, noOfLines);
+                    return new IF(parameters);
                 case "WHILE":
-                    return new While(parameters, noOfLines);
+                    return new While(parameters);
                 case "ENDIF":
-                    return null;
+                    return new EndIf(parameters);
                 case "ENDWHILE":
-                    return null;
+                    return new EndWhile(parameters);
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

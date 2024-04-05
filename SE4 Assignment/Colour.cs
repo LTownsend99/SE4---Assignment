@@ -1,8 +1,15 @@
-﻿namespace SE4_Assignment
+﻿
+using Timer = System.Windows.Forms.Timer;
+
+namespace SE4_Assignment
 {
     public class Colour : Shape
     {
         protected string name;
+        protected Color color1;
+        protected Color color2;
+        Timer timer = new Timer();
+
 
         public Colour(string[] array) : base(array)
         {
@@ -14,7 +21,24 @@
             base.runCommand(draw, varStorage);
             Color colour;
 
+            
             name = varStorage.GetVariableOrDefault(parameters[0]);
+            
+            if(name.Equals("redGreen"))
+            {
+                color1 = Color.Red;
+                color2 = Color.Green;
+            }
+            else if (name.Equals("blueYellow"))
+            {
+                color1 = Color.Blue;
+                color2 = Color.Yellow;
+            }
+            else if (name.Equals("blackWhite"))
+            {
+                color1 = Color.Black;
+                color2 = Color.White;
+            }
 
             try
             {

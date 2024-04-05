@@ -5,41 +5,21 @@
         protected string instruction = "";
         protected int num1;
         protected int num2;
-        protected bool check;
-        protected int noOfLines;
+        public bool check;
+        public bool singleLine = true;
         protected string tempIns;
 
-        public IF(string[] array, int noOfLines) : base(array)
+        public IF(string[] array) : base(array)
         {
-            this.noOfLines = noOfLines;
         }
 
         public override void runCommand(Draw draw, VarStorage varStorage)
         {
 
-            if (parameters[parameters.Length - 1] != "ENDIF;")
+
+            if (parameters.Length == 3)
             {
-                // Checks the number of parameters and adds to the string instruction 
-                if (parameters.Length == 5)
-                {
-                    instruction = parameters[3] + " " + parameters[4];
-                }
-                else if (parameters.Length == 6)
-                {
-                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5];
-                }
-                else if (parameters.Length == 7)
-                {
-                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5] + " " + parameters[6];
-                }
-            }
-            else
-            {
-                for (int i = 3; i < parameters.Length; i++)
-                {
-                    //creates a string with all the parameters in
-                    tempIns += parameters[i] + " ";
-                }
+                singleLine = false;
             }
 
 
@@ -65,14 +45,26 @@
                     throw new Exception("Invalid Operator: " + parameters[1]);
             }
 
-            if (check == true)
+            if (singleLine)
             {
-                // if tempins is not used then the line can be processed as normal 
-                if (tempIns == null)
+                if (parameters.Length == 5)
+                {
+                    instruction = parameters[3] + " " + parameters[4];
+                }
+                else if (parameters.Length == 6)
+                {
+                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5];
+                }
+                else if (parameters.Length == 7)
+                {
+                    instruction = parameters[3] + " " + parameters[4] + " " + parameters[5] + " " + parameters[6];
+                }
+
+                if (check == true)
                 {
                     try
                     {
-                        Command command = shapeFactory.processCommand(instruction, noOfLines);       //  passes the commmand from the line
+                        Command command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
 
                         command.runCommand(draw, varStorage);       //  proccesses the commmand
                     }
@@ -81,61 +73,9 @@
                         throw new ArgumentException("Invalid Data - Cannot Process inline Command");
                     }
                 }
-                else
-                {
-                    //splits the commands out again 
-                    string[] temp = tempIns.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-                    List<string> instructions = new List<string>();
-
-                    string currentCommand = "";
-
-                    //goes through and creates an instruction. Every time there is a ; its the start of a new instruction
-                    foreach (string line in temp)
-                    {
-
-                        if (line.EndsWith(";"))
-                        {
-                            instructions.Add(currentCommand.Trim());
-
-                            currentCommand = line.Trim(';');
-
-                        }
-                        else
-                        {
-                            currentCommand += " " + line;
-                        }
-                    }
-
-                    instructions.Add(currentCommand.Trim());
-
-                    // removes the empty string at the start of the list
-                    IEnumerable<string> instructionList = instructions.Skip(1);
-
-                    // goes through each instuction and process the command
-                    foreach (string inst in instructionList)
-                    {
-                        if (inst != "ENDIF")
-                        {
-                            try
-                            {
-                                Command command = shapeFactory.processCommand(inst, noOfLines);       //  passes the commmand from the line
-
-                                command.runCommand(draw, varStorage);       //  proccesses the commmand
-                            }
-                            catch (Exception e)
-                            {
-                                throw new ArgumentException("Invalid Data - Cannot Process inline Command");
-                            }
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-
-                }
             }
+
         }
 
         private bool greaterThan(string number1, string number2, VarStorage varStorage)

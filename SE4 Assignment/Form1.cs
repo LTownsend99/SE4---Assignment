@@ -68,7 +68,7 @@ namespace SE4_Assignment
             noOfLines = 1;
             try
             {
-                Command command = shapeFactory.processCommand(commandText, noOfLines);    //  passes the commmand from the command line
+                Command command = shapeFactory.processCommand(commandText);    //  passes the commmand from the command line
 
                 command.runCommand(draw, varStorage);       //  proccesses the commmand
             }
@@ -88,9 +88,68 @@ namespace SE4_Assignment
                 noOfLines = commandBox.Lines.Length;
                 try
                 {
-                    Command command = shapeFactory.processCommand(line, noOfLines);       //  passes the commmand from the line
+                    Command command = shapeFactory.processCommand(line);       //  passes the commmand from the line
 
                     command.runCommand(draw, varStorage);       //  proccesses the commmand
+
+                    if (command is IF IfCommand)
+                    {
+                        if (IfCommand.singleLine == false)
+                        {
+
+                            for (int a = i + 1; a < commandBox.Lines.Length; a++)
+                            {
+                                string instruction = commandBox.Lines[a];
+
+                                command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
+
+                                if (IfCommand.check)
+                                {
+                                    command.runCommand(draw, varStorage);
+                                }
+
+                                if (command is EndIf)
+                                {
+                                    i = a;
+                                    break;
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    if(command is While WhileCommand)
+                    {
+                        int temp = i;
+
+                        while (WhileCommand.check)
+                        {
+                            for (int a = i + 1; a < commandBox.Lines.Length; a++)
+                            {
+                                string instruction = commandBox.Lines[a];
+
+                                command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
+
+                                if (WhileCommand.check)
+                                {
+                                    command.runCommand(draw, varStorage);
+                                }
+
+                                if (command is EndWhile)
+                                {
+                                    temp = a;
+                                    break;
+
+                                }
+
+                            }
+
+                            WhileCommand.runCommand(draw, varStorage);
+                        }
+                        i = temp;
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -112,7 +171,7 @@ namespace SE4_Assignment
 
                 try
                 {
-                    Command command = shapeFactory.processCommand(line, noOfLines);       //  passes the commmand from the line
+                    Command command = shapeFactory.processCommand(line);       //  passes the commmand from the line
 
                     command.runCommand(draw, varStorage);       //  proccesses the commmand
                 }
