@@ -1,14 +1,10 @@
-﻿
-using Timer = System.Windows.Forms.Timer;
-
-namespace SE4_Assignment
+﻿namespace SE4_Assignment
 {
     public class Colour : Shape
     {
         protected string name;
-        protected Color color1;
-        protected Color color2;
-        Timer timer = new Timer();
+        protected Color colour1;
+        protected Color colour2;
 
 
         public Colour(string[] array) : base(array)
@@ -23,38 +19,47 @@ namespace SE4_Assignment
 
             
             name = varStorage.GetVariableOrDefault(parameters[0]);
-            
-            if(name.Equals("redGreen"))
+
+            if (name.Equals("REDGREEN"))
             {
-                color1 = Color.Red;
-                color2 = Color.Green;
+                colour1 = Color.Red;
+                colour2 = Color.Green;
+                draw.setMultiColour(colour1, colour2);
+
             }
-            else if (name.Equals("blueYellow"))
+            else if (name.Equals("BLUEYELLOW"))
             {
-                color1 = Color.Blue;
-                color2 = Color.Yellow;
+                colour1 = Color.Blue;
+                colour2 = Color.Yellow;
+                draw.setMultiColour(colour1, colour2);
+
             }
-            else if (name.Equals("blackWhite"))
+            else if (name.Equals("BLACKWHITE"))
             {
-                color1 = Color.Black;
-                color2 = Color.White;
+                colour1 = Color.Black;
+                colour2 = Color.White;
+                draw.setMultiColour(colour1, colour2);
+
+            }
+            else
+            {
+                try
+                {
+                    colour = Color.FromName(name);  //tries to set to the colour with that name provided
+                }
+                catch (Exception e)
+                {
+                    throw new ArgumentException("Invalid Data - Invalid Colour name ");
+                }
+
+                if (colour.IsKnownColor == false)       // if it isnt a known colour an exception is given
+                {
+                    throw new ArgumentException("Invalid Data - Not a known colour ");
+                }
+
+                draw.setColour(colour);
             }
 
-            try
-            {
-                colour = Color.FromName(name);  //tries to set to the colour with that name provided
-            }
-            catch (Exception e)
-            {
-                throw new ArgumentException("Invalid Data - Invalid Colour name ");
-            }
-
-            if (colour.IsKnownColor == false)       // if it isnt a known colour an exception is given
-            {
-                throw new ArgumentException("Invalid Data - Not a known colour ");
-            }
-
-            draw.setColour(colour);
         }
     }
 }

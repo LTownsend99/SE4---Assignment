@@ -47,3 +47,29 @@ VAR A = A + 10
 ENDWHILE
 FILL ON
 TRIANGLE 100 100
+
+VAR Radius = 20
+VAR Width = 20
+VAR Height = 20
+VAR Count = 1
+WHILE Count < 10
+Circle Radius
+VAR Radius = Radius + 10
+Rectangle Width Height
+VAR Width = Width + 10
+VAR Height = Height + 10
+VAR Count = Count + 1
+ENDWHILE
+
+RECTANGLE 200 100
+MOVETO 250 350
+COLOUR blueyellow
+FILL ON
+TRIANGLE 90 100
+
+colour redgreen
+fill on 
+circle 100
+moveto 250 250
+COLOURRGB 173 216 230
+triangle 100 75

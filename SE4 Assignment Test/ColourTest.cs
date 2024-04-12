@@ -44,10 +44,12 @@ namespace SE4_Assignment_Test
 
         }
 
-        [TestMethod]
-        public void TestValidColourParameters()
+        [DataTestMethod]
+        [DataRow("COLOUR", "RED")]
+        [DataRow("COLOUR", "REDGREEN")]
+        [DataRow("COLOUR", "BLUEYELLOW")]
+        public void TestValidColourParameters(string shapeCommand, string parameters)
         {
-            string parameters = "COLOUR 173 216 230";
 
             try
             {

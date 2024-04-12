@@ -5,13 +5,14 @@ namespace SE4_Assignment
 
         Draw draw;
         VarStorage varStorage = new VarStorage();
-        int noOfLines = 0;
+        Thread flashingThread;
         public Form1()
         {
 
             InitializeComponent();
 
             draw = new Draw(drawingBox);
+            
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +66,6 @@ namespace SE4_Assignment
         private void runButton_Click(object sender, EventArgs e)
         {
             String commandText = commandLine.Text;
-            noOfLines = 1;
             try
             {
                 Command command = shapeFactory.processCommand(commandText);    //  passes the commmand from the command line
@@ -85,7 +85,6 @@ namespace SE4_Assignment
             for (int i = 0; i < commandBox.Lines.Length; i++)       // loops through the lines in the commandBox
             {
                 string line = commandBox.Lines[i];
-                noOfLines = commandBox.Lines.Length;
                 try
                 {
                     Command command = shapeFactory.processCommand(line);       //  passes the commmand from the line
@@ -167,7 +166,6 @@ namespace SE4_Assignment
             {
 
                 string line = commandBox.Lines[i];
-                noOfLines = commandBox.Lines.Length;
 
                 try
                 {

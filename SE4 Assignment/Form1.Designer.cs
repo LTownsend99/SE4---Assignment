@@ -47,7 +47,7 @@
             // 
             // drawingBox
             // 
-            drawingBox.BackColor = SystemColors.ControlLightLight;
+            drawingBox.BackColor = SystemColors.ControlLight;
             drawingBox.Location = new Point(439, 41);
             drawingBox.Name = "drawingBox";
             drawingBox.Size = new Size(481, 573);
