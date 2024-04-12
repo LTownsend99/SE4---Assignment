@@ -9,7 +9,7 @@
         {
             parameters = array;
         }
-        virtual public void runCommand(Draw draw, VarStorage varStorage)
+        virtual public void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             if (parameters.Length != noOfParameters)
             {

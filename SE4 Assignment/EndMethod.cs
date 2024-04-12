@@ -1,8 +1,8 @@
 ﻿namespace SE4_Assignment
 {
-    public class EndWhile : Shape
+    public class EndMethod : Shape
     {
-        public EndWhile(string[] array) : base(array)
+        public EndMethod(string[] array) : base(array)
         {
             noOfParameters = 0;
         }

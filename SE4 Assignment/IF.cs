@@ -13,7 +13,7 @@
         {
         }
 
-        public override void runCommand(Draw draw, VarStorage varStorage)
+        public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
 
 
@@ -66,7 +66,7 @@
                     {
                         Command command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
 
-                        command.runCommand(draw, varStorage);       //  proccesses the commmand
+                        command.runCommand(draw, varStorage, methodStorage);       //  proccesses the commmand
                     }
                     catch (Exception e)
                     {

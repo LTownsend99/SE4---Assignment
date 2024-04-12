@@ -5,6 +5,7 @@ namespace SE4_Assignment
 
         Draw draw;
         VarStorage varStorage = new VarStorage();
+        MethodStorage methodStorage = new MethodStorage();
         Thread flashingThread;
         public Form1()
         {
@@ -70,7 +71,7 @@ namespace SE4_Assignment
             {
                 Command command = shapeFactory.processCommand(commandText);    //  passes the commmand from the command line
 
-                command.runCommand(draw, varStorage);       //  proccesses the commmand
+                command.runCommand(draw, varStorage, methodStorage);       //  proccesses the commmand
             }
             catch (Exception ex)
             {
@@ -89,7 +90,7 @@ namespace SE4_Assignment
                 {
                     Command command = shapeFactory.processCommand(line);       //  passes the commmand from the line
 
-                    command.runCommand(draw, varStorage);       //  proccesses the commmand
+                    command.runCommand(draw, varStorage, methodStorage);       //  proccesses the commmand
 
                     if (command is IF IfCommand)
                     {
@@ -104,7 +105,7 @@ namespace SE4_Assignment
 
                                 if (IfCommand.check)
                                 {
-                                    command.runCommand(draw, varStorage);
+                                    command.runCommand(draw, varStorage, methodStorage);
                                 }
 
                                 if (command is EndIf)
@@ -132,7 +133,7 @@ namespace SE4_Assignment
 
                                 if (WhileCommand.check)
                                 {
-                                    command.runCommand(draw, varStorage);
+                                    command.runCommand(draw, varStorage, methodStorage);
                                 }
 
                                 if (command is EndWhile)
@@ -144,11 +145,34 @@ namespace SE4_Assignment
 
                             }
 
-                            WhileCommand.runCommand(draw, varStorage);
+                            WhileCommand.runCommand(draw, varStorage, methodStorage);
                         }
                         i = temp;
                     }
 
+                    if (command is Method methodCommand)
+                    {
+                        for (int a = i + 1; a < commandBox.Lines.Length; a++)
+                            {
+                                string instruction = commandBox.Lines[a];
+
+                                command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
+
+                                if (methodCommand.check)
+                                {
+                                    command.runCommand(draw, varStorage, methodStorage);
+                                }
+
+                                if (command is EndIf)
+                                {
+                                    i = a;
+                                    break;
+
+                                }
+                        }
+
+                        
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -171,7 +195,7 @@ namespace SE4_Assignment
                 {
                     Command command = shapeFactory.processCommand(line);       //  passes the commmand from the line
 
-                    command.runCommand(draw, varStorage);       //  proccesses the commmand
+                    command.runCommand(draw, varStorage, methodStorage);       //  proccesses the commmand
                 }
                 catch (Exception ex)
                 {

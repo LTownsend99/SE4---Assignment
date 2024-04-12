@@ -7,9 +7,9 @@
             noOfParameters = 0;
         }
 
-        public override void runCommand(Draw draw, VarStorage varStorage)
+        public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage);
+            base.runCommand(draw, varStorage, methodStorage);
 
             draw.reset();
         }

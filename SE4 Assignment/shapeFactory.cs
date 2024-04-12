@@ -42,6 +42,10 @@
                     return new EndIf(parameters);
                 case "ENDWHILE":
                     return new EndWhile(parameters);
+                case "METHOD":
+                    return new Method(parameters);
+                case "ENDMETHOD":
+                    return new EndMethod(parameters);
                 default:
                     throw new Exception("Invalid Command Word " + commandName);
             }

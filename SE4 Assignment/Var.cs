@@ -12,7 +12,7 @@
 
         }
 
-        public override void runCommand(Draw draw, VarStorage varStorage)
+        public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             name = parameters[0];
 
