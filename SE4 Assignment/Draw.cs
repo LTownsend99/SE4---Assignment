@@ -117,7 +117,7 @@
                     }
                     else
                     {
-                        multiColourPen.Color= colour1;
+                        multiColourPen.Color = colour1;
                         g.DrawRectangle(multiColourPen, xPos, yPos, width, height);
                         multiColourPen.Color = colour2;
                         g2.DrawRectangle(multiColourPen, xPos, yPos, width, height);
@@ -149,7 +149,7 @@
                     }
                     else
                     {
-                        multiColourBrush.Color= colour1;
+                        multiColourBrush.Color = colour1;
                         g.FillPolygon(multiColourBrush, new Point[] { p1, p2, p3 });
                         multiColourBrush.Color = colour2;
                         g2.FillPolygon(multiColourBrush, new Point[] { p1, p2, p3 });
@@ -164,7 +164,7 @@
                     }
                     else
                     {
-                        multiColourPen.Color= colour1;
+                        multiColourPen.Color = colour1;
                         g.DrawPolygon(multiColourPen, new Point[] { p1, p2, p3 });
                         multiColourPen.Color = colour2;
                         g2.DrawPolygon(multiColourPen, new Point[] { p1, p2, p3 });

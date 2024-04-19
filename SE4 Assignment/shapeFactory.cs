@@ -10,7 +10,7 @@
 
             String[] parameters = instruction.Split(' ').Skip(1).ToArray();
 
-            switch (commandName)
+            switch (commandName)                        // calls the relevant command class
             {
                 case "CIRCLE":
                     return new Circle(parameters);
@@ -46,9 +46,26 @@
                     return new Method(parameters);
                 case "ENDMETHOD":
                     return new EndMethod(parameters);
-                default:
-                    throw new Exception("Invalid Command Word " + commandName);
+
             }
+
+            if (commandName.Contains("(") && commandName.Contains(")"))     // if the command contains () this means it is a method 
+            {
+                int noOfParam = commandName.Split(',').Length;
+
+                // if noOfParam is greater than 1 then set the array size to noOfParam +1 else set it to noOfParam
+                string[] methodParameters = new string[noOfParam > 1 ? noOfParam + 1 : noOfParam];
+
+                methodParameters[0] = commandName.Split("(")[0];
+                for (int i = 1; i < methodParameters.Length; i++)
+                {
+                    methodParameters[i] = commandName.Split("(")[1].Split(',')[i - 1].Replace(")", ""); // splits on ever, and will replace ) with nothing if present
+                }
+
+                return new CallMethod(methodParameters);        // call Method is called and the method is processed
+            }
+
+            throw new Exception("Invalid Command Word " + commandName);
         }
     }
 }

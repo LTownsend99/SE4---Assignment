@@ -17,7 +17,7 @@
             base.runCommand(draw, varStorage, methodStorage);
             Color colour;
 
-            
+
             name = varStorage.GetVariableOrDefault(parameters[0]);
 
             if (name.Equals("REDGREEN"))

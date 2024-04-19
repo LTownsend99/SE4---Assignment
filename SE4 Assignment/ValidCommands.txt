@@ -73,3 +73,9 @@ circle 100
 moveto 250 250
 COLOURRGB 173 216 230
 triangle 100 75
+
+Method myMethod(a,b,c)
+moveto a b
+circle c
+endmethod
+myMethod(50,50,100)

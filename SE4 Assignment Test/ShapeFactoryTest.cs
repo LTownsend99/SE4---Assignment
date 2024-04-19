@@ -32,8 +32,8 @@ namespace SE4_Assignment_Test
         [DataRow("WHILE", "5 < 10")] // Valid WHILE command
         [DataRow("ENDIF", "")] // Valid ENDIF command
         [DataRow("ENDWHILE", "")] // Valid ENDWHILE command
-
-
+        [DataRow("ENDMETHOD", "")] // Valid ENDMETHOD command
+        [DataRow("METHOD", "myMethod()")] // Valid METHOD command
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
 

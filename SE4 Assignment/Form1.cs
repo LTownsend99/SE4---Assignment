@@ -13,7 +13,7 @@ namespace SE4_Assignment
             InitializeComponent();
 
             draw = new Draw(drawingBox);
-            
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace SE4_Assignment
                         }
                     }
 
-                    if(command is While WhileCommand)
+                    if (command is While WhileCommand)
                     {
                         int temp = i;
 
@@ -152,26 +152,27 @@ namespace SE4_Assignment
 
                     if (command is Method methodCommand)
                     {
+                        List<string> method = new List<string>();
+
                         for (int a = i + 1; a < commandBox.Lines.Length; a++)
+                        {
+                            if (commandBox.Lines[a].ToUpper() != "ENDMETHOD")
                             {
-                                string instruction = commandBox.Lines[a];
+                                // adds all the lines between METHOD and ENDMETHOD to a list 
+                                method.Add(commandBox.Lines[a]);
+                            }
+                            else
+                            {
+                                i = a; // sets i to a so the programe contiues after the method is declared
+                                break;
+                            }
 
-                                command = shapeFactory.processCommand(instruction);       //  passes the commmand from the line
+                            methodCommand.setCommands(method);
 
-                                if (methodCommand.check)
-                                {
-                                    command.runCommand(draw, varStorage, methodStorage);
-                                }
 
-                                if (command is EndIf)
-                                {
-                                    i = a;
-                                    break;
-
-                                }
                         }
 
-                        
+
                     }
                 }
                 catch (Exception ex)

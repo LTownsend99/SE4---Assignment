@@ -37,5 +37,10 @@ namespace SE4_Assignment
                 return name;                // if it isnt referenced sets value to the parameter passed
             }
         }
+
+        public void removeVariable(string name)
+        {
+            varStorage.Remove(name);
+        }
     }
 }

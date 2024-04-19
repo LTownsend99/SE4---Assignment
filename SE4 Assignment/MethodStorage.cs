@@ -2,18 +2,18 @@
 {
     public class MethodStorage
     {
-        private Dictionary<string, List <string> > methodStorage;
+        private Dictionary<string, Method> methodStorage;
         public MethodStorage()
         {
-            methodStorage = new Dictionary<string, List<string> >();
+            methodStorage = new Dictionary<string, Method>();
         }
 
-        public void AddVariable(string name, List<string> value)
+        public void AddMethod(string name, Method method)
         {
-            methodStorage[name] = value;
+            methodStorage[name] = method;
         }
 
-        public List<string> GetVariable(string name)
+        public Method GetMethod(string name)
         {
             if (methodStorage.ContainsKey(name))       // checks if method is referenced
             {
@@ -24,5 +24,7 @@
                 return null;            // if it isnt referenced sets value to null 
             }
         }
+
+
     }
 }

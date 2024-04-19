@@ -14,7 +14,7 @@
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
 
-            
+
             // checks the operator of the IF statement and calls the relevant method
             switch (parameters[1])
             {
@@ -37,7 +37,7 @@
                     throw new Exception("Invalid Operator: " + parameters[1]);
             }
 
-            
+
         }
 
         private bool greaterThan(string number1, string number2, VarStorage varStorage)
