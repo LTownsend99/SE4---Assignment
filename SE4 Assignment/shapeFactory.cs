@@ -46,6 +46,8 @@
                     return new Method(parameters);
                 case "ENDMETHOD":
                     return new EndMethod(parameters);
+                case "POLYGON":
+                    return new Polygon(parameters);
 
             }
 

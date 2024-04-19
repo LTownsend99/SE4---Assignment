@@ -1,4 +1,5 @@
-﻿namespace SE4_Assignment
+﻿
+namespace SE4_Assignment
 {
     public class Draw
     {
@@ -175,6 +176,58 @@
             }
         }
 
+        public void drawPolygon(List<int> points)
+        {
+            if (drawEnabled)
+            {
+                using Graphics g = Graphics.FromImage(bitmap);
+                using Graphics g2 = Graphics.FromImage(bitmap2);
+
+                Point[] polygonPoints = new Point[points.Count];
+
+                for (int i = 0; i < points.Count; i += 2)
+                {
+                    int x = points[i] + xPos; // Adjust x-coordinate
+                    int y = points[i + yPos]; // Use y-coordinate as is
+
+                    polygonPoints[i / 2] = new Point(x, y);
+                }
+
+                if (fill)
+                {
+                    if (multiColour == false)
+                    {
+                        g.FillPolygon(brush, polygonPoints);
+                        g2.FillPolygon(brush, polygonPoints);
+                    }
+                    else
+                    {
+                        multiColourBrush.Color = colour1;
+                        g.FillPolygon(multiColourBrush, polygonPoints);
+                        multiColourBrush.Color = colour2;
+                        g2.FillPolygon(multiColourBrush, polygonPoints);
+                    }
+                }
+                else
+                {
+                    if (multiColour == false)
+                    {
+                        g.DrawPolygon(pen, polygonPoints);
+                        g2.DrawPolygon(pen, polygonPoints);
+                    }
+                    else
+                    {
+                        multiColourPen.Color = colour1;
+                        g.DrawPolygon(multiColourPen, polygonPoints);
+                        multiColourPen.Color = colour2;
+                        g2.DrawPolygon(multiColourPen, polygonPoints);
+                    }
+                }
+
+                drawingBox.Image = currentBitmap;
+            }
+        }
+
         public void drawTo(int x, int y)
         {
             if (drawEnabled)
@@ -305,5 +358,7 @@
                 multiColour = false;
             }
         }
+
+        
     }
 }
