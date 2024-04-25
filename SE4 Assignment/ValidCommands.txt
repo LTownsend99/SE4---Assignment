@@ -79,3 +79,5 @@ moveto a b
 circle c
 endmethod
 myMethod(50,50,100)
+
+polygon 100 50 150 30 200 50 220 100 150 150 80 100 

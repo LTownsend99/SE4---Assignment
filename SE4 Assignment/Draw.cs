@@ -183,12 +183,12 @@ namespace SE4_Assignment
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
 
-                Point[] polygonPoints = new Point[points.Count];
+                Point[] polygonPoints = new Point[points.Count / 2];
 
                 for (int i = 0; i < points.Count; i += 2)
                 {
                     int x = points[i] + xPos; // Adjust x-coordinate
-                    int y = points[i + yPos]; // Use y-coordinate as is
+                    int y = points[i + 1] + yPos; // Use y-coordinate as is
 
                     polygonPoints[i / 2] = new Point(x, y);
                 }
@@ -359,6 +359,6 @@ namespace SE4_Assignment
             }
         }
 
-        
+
     }
 }
