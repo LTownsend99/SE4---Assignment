@@ -28,8 +28,8 @@
         /// <summary>
         /// Adds the Method to the MethodStorage
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="method"></param>
+        /// <param name="name"> name of the method</param>
+        /// <param name="method"> method commands </param>
         public void AddMethod(string name, Method method)
         {
             methodStorage[name] = method;
@@ -38,8 +38,8 @@
         /// <summary>
         /// Gets the Methond from the MethodStorage
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name"> name of the method</param>
+        /// <returns> the method commands for the specified method </returns>
         public Method GetMethod(string name)
         {
             if (methodStorage.ContainsKey(name))       // checks if method is referenced

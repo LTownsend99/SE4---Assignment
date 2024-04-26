@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid ENDMETHOD parameters
+    /// </summary>
     [TestClass]
     public class EndMethodTest
     {
+        /// <summary>
+        /// Test for Invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("ENDMETHOD", "-50")]
         public void TestInvalidEndMethodParameters(string shapeCommand, string parameters)
@@ -32,6 +40,9 @@ namespace SE4_Assignment_Test
             }
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
         [TestMethod]
         public void TestValidEndMethodParameters()
         {

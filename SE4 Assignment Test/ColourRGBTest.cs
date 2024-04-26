@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid ColourRGB parameters
+    /// </summary>
     [TestClass]
     public class ColourRGBTest
     {
+        /// <summary>
+        /// Test for Invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked</param>
         [DataTestMethod]
         [DataRow("COLOURRGB", "-50,120,200")]
         [DataRow("COLOURRGB", "50,-20,150")]
@@ -54,6 +62,9 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
         [TestMethod]
         public void TestValidColourRGBParameters()
         {

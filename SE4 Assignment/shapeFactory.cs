@@ -8,9 +8,9 @@
         /// <summary>
         /// Validates the commandName that is passed in and calls the relevant class relating to that name
         /// </summary>
-        /// <param name="instruction"></param>
+        /// <param name="instruction"> the commands to be proccessed </param>
         /// <returns> an Object of the relevant name</returns>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"> catches the exception and provides the relevant message to the Terminal </exception>
         public static Command processCommand(String instruction)
         {
             instruction = instruction.ToUpper().Trim();

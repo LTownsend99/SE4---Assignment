@@ -19,10 +19,10 @@
         /// <summary>
         /// Checks the no of Parameters are valid, if not returns an exception
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage"></param>
-        /// <param name="methodStorage"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         virtual public void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             if (parameters.Length != noOfParameters)

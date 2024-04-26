@@ -23,10 +23,10 @@
         /// <summary>
         /// Takes the parameters passed in, proccesses them to make sure they are valid and passes it to the draw class to Change the colour of the Pen and Brush
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage"></param>
-        /// <param name="methodStorage"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal</exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             base.runCommand(draw, varStorage, methodStorage);   // checks the number of parameter are correct

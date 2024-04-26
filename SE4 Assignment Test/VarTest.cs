@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid VAR parameters
+    /// </summary>
     [TestClass]
     public class VarTest
     {
+        /// <summary>
+        /// Test for Invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("VAR", "count 40")]
         [DataRow("VAR", "count")]
@@ -42,6 +50,11 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("VAR", "size = 50")]
         [DataRow("VAR", "a = 5 + 6")]

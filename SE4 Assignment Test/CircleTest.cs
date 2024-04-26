@@ -2,10 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid Circle Parameters
+    /// </summary>
     [TestClass]
     public class CircleTest
     {
-
+        /// <summary>
+        /// Test for Invalid Circle paramaters
+        /// </summary>
+        /// <param name="shapeCommand"> command word passed in</param>
+        /// <param name="parameters"> paramaeters to be checked</param>
         [DataTestMethod]
         [DataRow("CIRCLE", "-50")]
         [DataRow("CIRCLE", "10,20,30,40")]
@@ -44,6 +51,9 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Test for Valid Circle parameters
+        /// </summary>
         [TestMethod]
         public void TestValidCircleParameters()
         {

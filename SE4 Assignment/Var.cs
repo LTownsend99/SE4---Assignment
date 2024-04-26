@@ -23,10 +23,10 @@
         /// <summary>
         /// Takes the parameters passed in, and proccesses them to make sure they are valid
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage"></param>
-        /// <param name="methodStorage"></param>
-        /// <exception cref="Exception"></exception>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
+        /// <exception cref="Exception"> catches the exception and provides the relevant message to the Terminal </exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             name = parameters[0];
@@ -65,11 +65,11 @@
         /// <summary>
         /// Adds the 2 numbers together
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A string of the sum of the expression </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private string addNumbers(string number1, string number2, VarStorage varStorage)
         {
 
@@ -94,11 +94,11 @@
         /// <summary>
         /// Subtracts one number from the other
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A string of the sum of the expression </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private string subtractNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage
@@ -122,11 +122,11 @@
         /// <summary>
         /// Multiplies the 2 numbers together
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A string of the sum of the expression </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private string multiplyNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage
@@ -150,11 +150,11 @@
         /// <summary>
         /// Divides one number from the other
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A string of the sum of the expression </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private string divideNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage

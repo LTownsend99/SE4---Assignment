@@ -29,8 +29,8 @@ namespace SE4_Assignment
         /// <summary>
         /// Add a variable to the varStorage
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
+        /// <param name="name"> name of the variable</param>
+        /// <param name="value"> value of the variable </param>
         public void AddVariable(string name, string value)
         {
             varStorage[name] = value;
@@ -39,7 +39,7 @@ namespace SE4_Assignment
         /// <summary>
         /// Gets a variable from the varStorage
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name"> name of the variable</param>
         /// <returns></returns>
         public string GetVariable(string name)
         {
@@ -56,7 +56,7 @@ namespace SE4_Assignment
         /// <summary>
         /// Gets the variable from varStorage or returns what is passed in
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name"> name of the variable or the value passed in </param>
         /// <returns></returns>
         public string GetVariableOrDefault(string name)
         {
@@ -73,7 +73,7 @@ namespace SE4_Assignment
         /// <summary>
         /// Removes a varibale from the varStorage
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name"> name of the variable</param>
         public void removeVariable(string name)
         {
             varStorage.Remove(name);

@@ -2,9 +2,15 @@ using SE4_Assignment;
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid Command words
+    /// </summary>
     [TestClass]
     public class ShapeFactoryTest
     {
+        /// <summary>
+        /// Test for Invalid commmand word
+        /// </summary>
         [TestMethod]
         public void TestInvalidCommandName()
         {
@@ -16,6 +22,11 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("CIRCLE", "50")] // Valid circle command
         [DataRow("RECTANGLE", "10,20,30,40")] // Valid rectangle command
@@ -34,6 +45,7 @@ namespace SE4_Assignment_Test
         [DataRow("ENDWHILE", "")] // Valid ENDWHILE command
         [DataRow("ENDMETHOD", "")] // Valid ENDMETHOD command
         [DataRow("METHOD", "myMethod()")] // Valid METHOD command
+        [DataRow("POLYGON", "10,20,30,40,50,60")] // Valid METHOD command
         public void TestValidCommandWord(string shapeCommand, string parameters)
         {
 

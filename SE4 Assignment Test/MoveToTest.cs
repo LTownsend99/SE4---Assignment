@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid MOVETO parameters
+    /// </summary>
     [TestClass]
     public class MoveToTest
     {
+        /// <summary>
+        /// Test for Invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("MOVETO", "-50,20")]
         [DataRow("MOVETO", "50,-20")]
@@ -49,6 +57,9 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
         [TestMethod]
         public void TestValidMoveToParameters()
         {

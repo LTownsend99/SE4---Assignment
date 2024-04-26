@@ -16,10 +16,10 @@
         /// <summary>
         /// Runs through the parameters passed in and runs each Command within the method
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage">passed in so variables can be called from within the method</param>
-        /// <param name="methodStorage"></param>
-        /// <exception cref="Exception"></exception>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
+        /// <exception cref="Exception"> returns the relevant meesage to the Terminal</exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             String methodName = parameters[0];      // sets the first param to the method name

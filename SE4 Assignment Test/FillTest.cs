@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Invalid and Valid FILL parameters
+    /// </summary>
     [TestClass]
     public class FillTest
     {
+        /// <summary>
+        /// Test for Invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> commandName passed in</param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("FILL", "50,10")]
         [DataRow("FILL", "abc")]
@@ -39,6 +47,9 @@ namespace SE4_Assignment_Test
 
         }
 
+        /// <summary>
+        /// Tests for Valid parameters
+        /// </summary>
         [TestMethod]
         public void TestValidFillParameters()
         {

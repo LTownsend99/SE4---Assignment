@@ -22,9 +22,9 @@
         /// <summary>
         /// Takes the parameters passed in, and proccesses them to make sure they are valid
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage"></param>
-        /// <param name="methodStorage"></param>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             name = parameters[0].Split("(")[0]; // sets the first param to the method name
@@ -48,7 +48,7 @@
         /// <summary>
         /// Sets the commands for the Method
         /// </summary>
-        /// <param name="method"></param>
+        /// <param name="method"> passes a list of strings in </param>
         public void setCommands(List<string> method)
         {
             this.method = method;

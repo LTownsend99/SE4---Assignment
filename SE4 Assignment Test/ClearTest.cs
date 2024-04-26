@@ -2,9 +2,17 @@
 
 namespace SE4_Assignment_Test
 {
+    /// <summary>
+    /// Tests for Valid and Invalid Clear Parameters
+    /// </summary>
     [TestClass]
     public class ClearTest
     {
+        /// <summary>
+        /// Test for invalid parameters
+        /// </summary>
+        /// <param name="shapeCommand"> command name passed in </param>
+        /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("CLEAR", "-50")]
         [DataRow("MOVETO", "50,-20")]
@@ -33,6 +41,9 @@ namespace SE4_Assignment_Test
             }
         }
 
+        /// <summary>
+        /// Test for Valid parameters
+        /// </summary>
         [TestMethod]
         public void TestValidClearParameters()
         {

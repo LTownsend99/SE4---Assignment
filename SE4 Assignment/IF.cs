@@ -24,11 +24,11 @@
         /// <summary>
         /// Takes the parameters passed in, and proccesses them to make sure they are valid. 
         /// </summary>
-        /// <param name="draw"></param>
-        /// <param name="varStorage"></param>
-        /// <param name="methodStorage"></param>
-        /// <exception cref="Exception"></exception>
-        /// <exception cref="ArgumentException"></exception>
+        /// <param name="draw"> provides the ability to call methods from this class</param>
+        /// <param name="varStorage">provides the ability to call methods from this class</param>
+        /// <param name="methodStorage"> provides the ability to call methods from this class </param>
+        /// <exception cref="Exception"> catches the exception and provides the relevant message to the Terminal </exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
 
@@ -99,11 +99,11 @@
         /// <summary>
         /// Checks that the expression passed in is correct or not 
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A Bool of true or false </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private bool greaterThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -129,11 +129,11 @@
         /// <summary>
         /// Checks that the expression passed in is correct or not 
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A Bool of true or false </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private bool smallerThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -159,11 +159,11 @@
         /// <summary>
         /// Checks that the expression passed in is correct or not 
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A Bool of true or false </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private bool smallerOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -189,11 +189,11 @@
         /// <summary>
         /// Checks that the expression passed in is correct or not 
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A Bool of true or false </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private bool greaterOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -219,11 +219,11 @@
         /// <summary>
         /// Checks that the expression passed in is correct or not 
         /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <param name="varStorage"></param>
+        /// <param name="number1">First number passed in</param>
+        /// <param name="number2"> second number passed in</param>
+        /// <param name="varStorage"> provides the ability to call methods from this class </param>
         /// <returns> A Bool of true or false </returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException"> catches the exception and provides the relevant message to the Terminal </exception>
         private bool equalTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
