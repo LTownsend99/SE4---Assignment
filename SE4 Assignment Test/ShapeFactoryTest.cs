@@ -29,6 +29,7 @@ namespace SE4_Assignment_Test
         /// <param name="parameters"> parameters to be checked </param>
         [DataTestMethod]
         [DataRow("CIRCLE", "50")] // Valid circle command
+        [DataRow("CONCIRCLE", "50")] // Valid Concentriccircle command
         [DataRow("RECTANGLE", "10,20,30,40")] // Valid rectangle command
         [DataRow("TRIANGLE", "3,4")] // Valid triangle command
         [DataRow("MOVETO", "10,5")] // Valid moveTo command

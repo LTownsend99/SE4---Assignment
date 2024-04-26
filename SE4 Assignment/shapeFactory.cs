@@ -22,6 +22,8 @@
             {
                 case "CIRCLE":
                     return new Circle(parameters);
+                case "CONCIRCLE":
+                    return new ConcentricCircle(parameters);
                 case "TRIANGLE":
                     return new Triangle(parameters);
                 case "RECTANGLE":

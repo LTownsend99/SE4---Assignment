@@ -57,6 +57,7 @@ namespace SE4_Assignment
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
+               
 
                 if (fill)       // if fill is on, then it will draw a solid shape
                 {
@@ -90,6 +91,59 @@ namespace SE4_Assignment
                         g.DrawEllipse(multiColourPen, xPos, yPos, radius * 2, radius * 2);
                         multiColourPen.Color = colour2;
                         g2.DrawEllipse(multiColourPen, xPos, yPos, radius * 2, radius * 2);
+                    }
+                }
+
+                drawingBox.Image = currentBitmap;   // what ever is drawn on the bitmap is set to the drawingBox
+            }
+        }
+
+        /// <summary>
+        /// Draws Concentric circles with the radius passed in
+        /// </summary>
+        /// <param name="radius"> passed from the Circle class </param>
+        public void drawConcentricCircle(int radius)
+        {
+            if (drawEnabled)        // checks if drawing is enabled
+            {
+                using Graphics g = Graphics.FromImage(bitmap);
+                using Graphics g2 = Graphics.FromImage(bitmap2);
+
+                int centerx = this.drawingBox.Width / 2;
+                int centery = this.drawingBox.Height / 2;
+
+                if (fill)       // if fill is on, then it will draw a solid shape
+                {
+                    if (multiColour == false)   // if a mutliColour isnt used then will draw in one colour
+                    {
+                        g.FillEllipse(brush, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+                        g2.FillEllipse(brush, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+
+                    }
+                    else
+                    {
+                        multiColourBrush.Color = colour1;
+                        g.FillEllipse(multiColourBrush, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+                        multiColourBrush.Color = colour2;
+                        g2.FillEllipse(multiColourBrush, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+
+                    }
+
+                }
+                else
+                {
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
+                    {
+                        g.DrawEllipse(pen, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+                        g2.DrawEllipse(pen, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+
+                    }
+                    else
+                    {
+                        multiColourPen.Color = colour1;
+                        g.DrawEllipse(multiColourPen, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
+                        multiColourPen.Color = colour2;
+                        g2.DrawEllipse(multiColourPen, centerx - radius - xPos, centery - radius - yPos, radius * 2, radius * 2);
                     }
                 }
 
