@@ -2,10 +2,17 @@
 {
     public class MethodStorage
     {
+        private static MethodStorage instance = new MethodStorage(); // implement singleton structure
+
         private Dictionary<string, Method> methodStorage;
-        public MethodStorage()
+        private MethodStorage()
         {
             methodStorage = new Dictionary<string, Method>();
+        }
+
+        public static MethodStorage Instance   // allows an instance to be created of the Var Storage
+        { 
+            get { return instance; } 
         }
 
         public void AddMethod(string name, Method method)

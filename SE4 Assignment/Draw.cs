@@ -17,12 +17,14 @@ namespace SE4_Assignment
         PictureBox drawingBox;
         bool fill = false;
         bool flashFlag = false;
-        Thread flashingThread;
+        public Thread flashingThread;
         Pen multiColourPen;
         SolidBrush multiColourBrush;
         bool multiColour = false;
 
         public bool drawEnabled { get; set; } = true;
+        public bool runFlag { get; set; } = true;
+
 
 
         public Draw(PictureBox drawingBox)
@@ -303,7 +305,7 @@ namespace SE4_Assignment
         {
             if (drawEnabled)
             {
-                while (true)
+                while (runFlag)
                 {
                     if (flashFlag == false)
                     {
@@ -340,6 +342,7 @@ namespace SE4_Assignment
                 g.Clear(Color.Transparent);
                 g2.Clear(Color.Transparent);
 
+                
                 drawingBox.Image = currentBitmap;
             }
         }

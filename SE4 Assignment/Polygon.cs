@@ -17,11 +17,12 @@
 
             for (int i = 0; i < parameters.Length; i++)
             {
+                // checks if the variable is already created and fetchs its value, if not uses the default passed in
                 temp = varStorage.GetVariableOrDefault(parameters[i]);
 
                 try
                 {
-                    tempInt = int.Parse(temp);
+                    tempInt = int.Parse(temp);  // tries to parse temp to an int
                 }
                 catch (FormatException e)
                 {
@@ -29,7 +30,7 @@
 
                 }
 
-                if (tempInt < 0) 
+                if (tempInt < 0) // only positive numbers allowed
                 { throw new ArgumentException("Invalid data - Provided a Negative Number when points should be Positive"); }
 
                 points.Add(tempInt);

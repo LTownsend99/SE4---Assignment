@@ -4,9 +4,8 @@ namespace SE4_Assignment
     {
 
         Draw draw;
-        VarStorage varStorage = new VarStorage();
-        MethodStorage methodStorage = new MethodStorage();
-        Thread flashingThread;
+        VarStorage varStorage = VarStorage.Instance;
+        MethodStorage methodStorage = MethodStorage.Instance;
         public Form1()
         {
 
@@ -205,6 +204,11 @@ namespace SE4_Assignment
             }
 
             draw.drawEnabled = true;        // turns drawing back on 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            draw.runFlag = false;   // when the form is closed the thread is stopped and the programme stops running
         }
     }
 }

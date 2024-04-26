@@ -3,10 +3,17 @@ namespace SE4_Assignment
 {
     public class VarStorage
     {
+        private static VarStorage instance = new VarStorage(); // implement singleton design pattern
+
         private Dictionary<string, string> varStorage;
-        public VarStorage()
+        private VarStorage()
         {
             varStorage = new Dictionary<string, string>();
+        }
+
+        public static VarStorage Instance   // allows an instance to be created of the Var Storage
+        {
+            get { return instance; }
         }
 
         public void AddVariable(string name, string value)
