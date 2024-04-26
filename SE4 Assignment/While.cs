@@ -1,5 +1,8 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parameters passed in
+    /// </summary>
     public class While : Shape
     {
         protected string tempIns;
@@ -7,10 +10,21 @@
         protected int num1;
         protected int num2;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the paramaters passed in</param>
         public While(string[] array) : base(array)
         {
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, and proccesses them to make sure they are valid. 
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="Exception"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
 
@@ -40,6 +54,14 @@
 
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool greaterThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -62,6 +84,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool smallerThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -84,6 +114,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool smallerOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -106,6 +144,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool greaterOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -128,6 +174,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool equalTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;

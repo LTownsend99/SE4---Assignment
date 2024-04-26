@@ -1,14 +1,28 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the circle paramaters that are passed in 
+    /// </summary>
+    /// <example> CIRCLE 100 </example>
     public class Circle : Shape
     {
         protected int radius;
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array">the parameters that are passed in </param>
         public Circle(string[] array) : base(array) { noOfParameters = 1; }
 
+        /// <summary>
+        /// Takes the parameters passed in, proccesses them to make sure they are valid and passes it to the draw class to draw the shape
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage, methodStorage);
+            base.runCommand(draw, varStorage, methodStorage);   // checks the number of paramaters are correct
 
             string value;
 

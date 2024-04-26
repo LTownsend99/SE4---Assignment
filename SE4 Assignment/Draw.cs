@@ -1,32 +1,38 @@
 ﻿
 namespace SE4_Assignment
 {
+    /// <summary>
+    /// Drawing class the executes all methods the action something on the drawingBox
+    /// </summary>
     public class Draw
     {
-        Pen pen;
-        SolidBrush brush;
-        Color colour = Color.Black;
-        Color colour1 = Color.Black;
-        Color colour2 = Color.Black;
+        private Pen pen;
+        private SolidBrush brush;
+        private Color colour = Color.Black;
+        private Color colour1 = Color.Black;
+        private Color colour2 = Color.Black;
 
-        int xPos = 0;
-        int yPos = 0;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap currentBitmap;
-        PictureBox drawingBox;
-        bool fill = false;
-        bool flashFlag = false;
+        private int xPos = 0;
+        private int yPos = 0;
+        private Bitmap bitmap;
+        private Bitmap bitmap2;
+        private Bitmap currentBitmap;
+        private PictureBox drawingBox;
+        private bool fill = false;
+        private bool flashFlag = false;
         public Thread flashingThread;
-        Pen multiColourPen;
-        SolidBrush multiColourBrush;
-        bool multiColour = false;
+        private Pen multiColourPen;
+        private SolidBrush multiColourBrush;
+        private bool multiColour = false;
 
         public bool drawEnabled { get; set; } = true;
         public bool runFlag { get; set; } = true;
 
 
-
+        /// <summary>
+        /// Contructor - initialises all the relevant variables
+        /// </summary>
+        /// <param name="drawingBox"> the box on the form we want to draw to</param>
         public Draw(PictureBox drawingBox)
         {
             this.drawingBox = drawingBox;
@@ -41,16 +47,20 @@ namespace SE4_Assignment
             flashingThread.Start();
         }
 
+        /// <summary>
+        /// Draws a circle with the radius passed in
+        /// </summary>
+        /// <param name="radius"> passed from the Circle class </param>
         public void drawCircle(int radius)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
 
-                if (fill)
+                if (fill)       // if fill is on, then it will draw a solid shape
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)   // if a mutliColour isnt used then will draw in one colour
                     {
                         g.FillEllipse(brush, xPos, yPos, radius * 2, radius * 2);
                         g2.FillEllipse(brush, xPos, yPos, radius * 2, radius * 2);
@@ -68,7 +78,7 @@ namespace SE4_Assignment
                 }
                 else
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.DrawEllipse(pen, xPos, yPos, radius * 2, radius * 2);
                         g2.DrawEllipse(pen, xPos, yPos, radius * 2, radius * 2);
@@ -83,21 +93,26 @@ namespace SE4_Assignment
                     }
                 }
 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;   // what ever is drawn on the bitmap is set to the drawingBox
             }
         }
 
+        /// <summary>
+        /// Draws a Rectangle based on the parameters passed in
+        /// </summary>
+        /// <param name="width"> passed from the Rectangle Class </param>
+        /// <param name="height">  passed from the Rectangle Class </param>
         public void drawRectangle(int width, int height)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
 
 
-                if (fill)
+                if (fill)       // if fill is on, then it will draw a solid shape
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.FillRectangle(brush, xPos, yPos, width, height);
                         g2.FillRectangle(brush, xPos, yPos, width, height);
@@ -113,7 +128,7 @@ namespace SE4_Assignment
                 }
                 else
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.DrawRectangle(pen, xPos, yPos, width, height);
                         g2.DrawRectangle(pen, xPos, yPos, width, height);
@@ -127,13 +142,18 @@ namespace SE4_Assignment
                     }
                 }
 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;       // what ever is drawn on the bitmap is set to the drawingBox
             }
         }
 
+        /// <summary>
+        /// Draws a Triangle based the parameters passed in
+        /// </summary>
+        /// <param name="width"> passed form the Triangle Class </param>
+        /// <param name="height"> passed form the Triangle Class </param>
         public void drawTriangle(int width, int height)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
@@ -143,9 +163,9 @@ namespace SE4_Assignment
                 Point p3 = new Point(width, height);
 
 
-                if (fill)
-                {
-                    if (multiColour == false)
+                if (fill)       // if fill is on, then it will draw a solid shape
+                {   
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.FillPolygon(brush, new Point[] { p1, p2, p3 });
                         g2.FillPolygon(brush, new Point[] { p1, p2, p3 });
@@ -160,7 +180,7 @@ namespace SE4_Assignment
                 }
                 else
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.DrawPolygon(pen, new Point[] { p1, p2, p3 });
                         g2.DrawPolygon(pen, new Point[] { p1, p2, p3 });
@@ -174,13 +194,17 @@ namespace SE4_Assignment
                     }
                 }
 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;       // what ever is drawn on the bitmap is set to the drawingBox
             }
         }
 
+        /// <summary>
+        /// Draws a Polygon based the parmeters passed in
+        /// </summary>
+        /// <param name="points"> the parameters passed from the Polygon class </param>
         public void drawPolygon(List<int> points)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
@@ -195,9 +219,9 @@ namespace SE4_Assignment
                     polygonPoints[i / 2] = new Point(x, y);
                 }
 
-                if (fill)
+                if (fill)       // if fill is on, then it will draw a solid shape
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.FillPolygon(brush, polygonPoints);
                         g2.FillPolygon(brush, polygonPoints);
@@ -212,7 +236,7 @@ namespace SE4_Assignment
                 }
                 else
                 {
-                    if (multiColour == false)
+                    if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                     {
                         g.DrawPolygon(pen, polygonPoints);
                         g2.DrawPolygon(pen, polygonPoints);
@@ -226,18 +250,23 @@ namespace SE4_Assignment
                     }
                 }
 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;       // what ever is drawn on the bitmap is set to the drawingBox
             }
         }
 
+        /// <summary>
+        /// Draws a Line based the parmeters passed in
+        /// </summary>
+        /// <param name="x"> passed from the DrawTo class</param>
+        /// <param name="y"> passed from the DrawTo class </param>
         public void drawTo(int x, int y)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
 
-                if (multiColour == false)
+                if (multiColour == false)       // if a mutliColour isnt used then will draw in one colour
                 {
                     g.DrawLine(pen, xPos, yPos, x, y);
                     g2.DrawLine(pen, xPos, yPos, x, y);
@@ -250,62 +279,85 @@ namespace SE4_Assignment
                     g2.DrawLine(multiColourPen, xPos, yPos, x, y);
                 }
 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;       // what ever is drawn on the bitmap is set to the drawingBox
 
-                xPos = x;
-                yPos = y;
+                xPos = x;   // sets xPos to the current x coordinate
+                yPos = y;   // sets yPos to the current y coordinate
             }
         }
 
+        /// <summary>
+        /// Move the start postion for drawing
+        /// </summary>
+        /// <param name="x"> passed in from the MoveTo class </param>
+        /// <param name="y"> passed in from the MoveTo class </param>
         public void moveTo(int x, int y)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
-                xPos = x;
-                yPos = y;
+                xPos = x;   // sets xPos to the current x coordinate
+                yPos = y;   // sets yPos to the current y coordinate
             }
         }
 
+        /// <summary>
+        /// Sets the colour of the Brush and the Pen to the Colours passed in 
+        /// </summary>
+        /// <param name="red"> passed in from the ColourRGB class </param>
+        /// <param name="green"> passed in from the ColourRGB class </param>
+        /// <param name="blue"> passed in from the ColourRGB class </param>
         public void setColour(int red, int green, int blue)
         {
-            multiColour = false;
+            multiColour = false;    // sets multiColour to false as it is a single colour
 
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
-                colour = Color.FromArgb(red, green, blue);
+                colour = Color.FromArgb(red, green, blue);  // sets the colour using 3 integers < 255
                 pen.Color = colour;
                 brush.Color = colour;
             }
         }
 
+        /// <summary>
+        /// Sets the colour of the Brush and the Pen to the Colours passed in 
+        /// </summary>
+        /// <param name="newColour"> passed in from the Colour class </param>
         public void setColour(Color newColour)
         {
-            multiColour = false;
+            multiColour = false;    // sets multiColour to false as it is a single colour
 
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
-                colour = newColour;
+                colour = newColour; // sets colour to the new colour passed in
                 pen.Color = colour;
                 brush.Color = colour;
             }
         }
 
+        /// <summary>
+        /// Sets the colours 1 and 2 to the Colours passed in 
+        /// </summary>
+        /// <param name="colour1"></param>
+        /// <param name="colour2"></param>
         public void setMultiColour(Color colour1, Color colour2)
         {
-            multiColour = true;
-
-            if (drawEnabled)
+            multiColour = true; // sets multiColour to true so 2 bitmaps are used
+                
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 this.colour1 = colour1;
                 this.colour2 = colour2;
             }
         }
 
+        /// <summary>
+        /// A method the Thread uses to flick between 2 bitmaps to allow the colours to flash
+        /// </summary>
         public void FlashBitmaps()
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
-                while (runFlag)
+                while (runFlag)     //checks if the runFlag is active for the Thread
                 {
                     if (flashFlag == false)
                     {
@@ -320,21 +372,29 @@ namespace SE4_Assignment
                         flashFlag = false;
                     }
 
-                    Thread.Sleep(500);
+                    Thread.Sleep(500);  // tells the thread how long it should appear for
                 }
             }
         }
+        
+        /// <summary>
+        /// Sets the fill boolean to draw so solid shapes are drawn
+        /// </summary>
+        /// <param name="fill"> parameter passed in from the Fill class </param>
         public void drawFill(bool fill)
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 this.fill = fill;
             }
         }
 
+        /// <summary>
+        /// Clears both bitmaps
+        /// </summary>
         public void clear()
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 using Graphics g = Graphics.FromImage(bitmap);
                 using Graphics g2 = Graphics.FromImage(bitmap2);
@@ -343,13 +403,16 @@ namespace SE4_Assignment
                 g2.Clear(Color.Transparent);
 
                 
-                drawingBox.Image = currentBitmap;
+                drawingBox.Image = currentBitmap;       // what ever is drawn on the bitmap is set to the drawingBox
             }
         }
 
+        /// <summary>
+        /// Resets all the relevant variables
+        /// </summary>
         public void reset()
         {
-            if (drawEnabled)
+            if (drawEnabled)        // checks if drawing is enabled
             {
                 xPos = 0;
                 yPos = 0;

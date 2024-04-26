@@ -1,5 +1,9 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parameters passed in
+    /// </summary>
+    /// <example> IF A < B </example>
     public class IF : Shape
     {
         protected string instruction = "";
@@ -9,15 +13,27 @@
         public bool singleLine = true;
         protected string tempIns;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters passed in</param>
         public IF(string[] array) : base(array)
         {
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, and proccesses them to make sure they are valid. 
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
 
 
-            if (parameters.Length == 3)
+            if (parameters.Length == 3)     // if there are 3 parameters then it is not a singleLine IF
             {
                 singleLine = false;
             }
@@ -45,8 +61,10 @@
                     throw new Exception("Invalid Operator: " + parameters[1]);
             }
 
-            if (singleLine)
+            if (singleLine)     
             {
+                // creates the instruction from the parameters passed in
+
                 if (parameters.Length == 5)
                 {
                     instruction = parameters[3] + " " + parameters[4];
@@ -78,6 +96,14 @@
 
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool greaterThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -100,6 +126,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool smallerThan(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -122,6 +156,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool smallerOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -144,6 +186,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool greaterOrEqualTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;
@@ -166,6 +216,14 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks that the expression passed in is correct or not 
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A Bool of true or false </returns>
+        /// <exception cref="ArgumentException"></exception>
         private bool equalTo(string number1, string number2, VarStorage varStorage)
         {
             bool result;

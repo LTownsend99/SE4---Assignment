@@ -1,25 +1,40 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parmaters that are passed in
+    /// </summary>
+    /// <example> COLOUR 100 150 250 </example>
     public class ColourRGB : Shape
     {
         protected int red;
         protected int blue;
         protected int green;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters passed in </param>
         public ColourRGB(string[] array) : base(array)
         {
             noOfParameters = 3;
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, proccesses them to make sure they are valid and passes it to the draw class to Change the colour of the Pen and Brush
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage, methodStorage);
+            base.runCommand(draw, varStorage, methodStorage);   // checks the number of parameters are correct
 
             string tempRed;
             string tempBlue;
             string tempGreen;
 
-
+            // checks if the variable passed in exists in the varStorage
             tempRed = varStorage.GetVariableOrDefault(parameters[0]);
             tempGreen = varStorage.GetVariableOrDefault(parameters[1]);
             tempBlue = varStorage.GetVariableOrDefault(parameters[2]);

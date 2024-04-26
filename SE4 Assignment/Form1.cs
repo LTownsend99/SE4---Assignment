@@ -1,11 +1,18 @@
 namespace SE4_Assignment
 {
+    /// <summary>
+    /// Form1 is the driver class for the windows Form and will hold all the event methods
+    /// </summary>
     public partial class Form1 : Form
     {
 
         Draw draw;
         VarStorage varStorage = VarStorage.Instance;
         MethodStorage methodStorage = MethodStorage.Instance;
+
+        /// <summary>
+        /// Initializes the form so it renders correctly and creates the GUI for the user to use
+        /// </summary>
         public Form1()
         {
 
@@ -15,6 +22,11 @@ namespace SE4_Assignment
 
         }
 
+        /// <summary>
+        /// When Open is clicked, the file the user has selected will be loaded into the commandBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -32,6 +44,12 @@ namespace SE4_Assignment
 
         }
 
+        /// <summary>
+        /// When Save is clicked all the text in the CommandBox will be saved to a text document to a location of the 
+        /// users choosing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
@@ -48,6 +66,11 @@ namespace SE4_Assignment
             else { Terminal.Text += "Could not Save File" + Environment.NewLine; }
         }
 
+        /// <summary>
+        /// When New is clicked everything is cleared and will be blank. Basically a Fresh Start
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // clears both the command line and box
@@ -58,11 +81,21 @@ namespace SE4_Assignment
             drawingBox.Update();
         }
 
+        /// <summary>
+        /// Allows you to draw to the drawingBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void drawingBox_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Runs the command typed in the commandLine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void runButton_Click(object sender, EventArgs e)
         {
             String commandText = commandLine.Text;
@@ -79,6 +112,12 @@ namespace SE4_Assignment
             commandLine.Text = "";
         }
 
+        /// <summary>
+        /// Reads through all the lines in the commandBox and executes them a line at a time
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns> Will return which commands have errors to the Terminal (if any)</returns>
         private void runProgram_Click(object sender, EventArgs e)
         {
 
@@ -93,7 +132,7 @@ namespace SE4_Assignment
 
                     if (command is IF IfCommand)
                     {
-                        if (IfCommand.singleLine == false)
+                        if (IfCommand.singleLine == false)  // if it is a single line IF statement proccess as normal and ignore this block of code
                         {
 
                             for (int a = i + 1; a < commandBox.Lines.Length; a++)
@@ -182,6 +221,12 @@ namespace SE4_Assignment
 
         }
 
+        /// <summary>
+        /// Runs the code without drawing anything to the drawingBox, this checks for any Sytax errors typed in the commands
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns> Will return which commands have sytax errors to the Terminal (if any)</returns>
         private void syntaxButton_Click(object sender, EventArgs e)
         {
             draw.drawEnabled = false;       // turns drawing off so just the validation is run
@@ -206,6 +251,11 @@ namespace SE4_Assignment
             draw.drawEnabled = true;        // turns drawing back on 
         }
 
+        /// <summary>
+        /// Stops the Threads running when X is pressed on the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             draw.runFlag = false;   // when the form is closed the thread is stopped and the programme stops running

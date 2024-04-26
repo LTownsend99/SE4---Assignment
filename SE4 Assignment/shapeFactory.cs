@@ -1,8 +1,16 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the instruction that is passed in
+    /// </summary>
     public class shapeFactory
     {
-
+        /// <summary>
+        /// Validates the commandName that is passed in and calls the relevant class relating to that name
+        /// </summary>
+        /// <param name="instruction"></param>
+        /// <returns> an Object of the relevant name</returns>
+        /// <exception cref="Exception"></exception>
         public static Command processCommand(String instruction)
         {
             instruction = instruction.ToUpper().Trim();

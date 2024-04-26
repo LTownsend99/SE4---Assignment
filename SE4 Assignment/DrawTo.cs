@@ -1,15 +1,31 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parameters that are passed in
+    /// </summary>
+    /// <example> DRAWTO 50 100 </example>
     public class DrawTo : Shape
     {
 
         protected int x;
         protected int y;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters passed in </param>
         public DrawTo(string[] array) : base(array)
         {
             noOfParameters = 2;
         }
+
+        /// <summary>
+        /// Takes the parameters passed in, proccesses them to make sure they are valid and passes it to the draw class to draw the shape
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
 
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {

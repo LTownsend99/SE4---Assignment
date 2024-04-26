@@ -1,24 +1,40 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parmaters that are passed in
+    /// </summary>
+    /// <example> COLOUR RED </example>
     public class Colour : Shape
     {
         protected string name;
+        protected Color colour;
         protected Color colour1;
         protected Color colour2;
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters that are passed in </param>
         public Colour(string[] array) : base(array)
         {
             noOfParameters = 1;
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, proccesses them to make sure they are valid and passes it to the draw class to Change the colour of the Pen and Brush
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage, methodStorage);
-            Color colour;
+            base.runCommand(draw, varStorage, methodStorage);   // checks the number of parameter are correct
 
 
             name = varStorage.GetVariableOrDefault(parameters[0]);
+            
+            // if any of these Colours are used then its a multiColour
 
             if (name.Equals("REDGREEN"))
             {

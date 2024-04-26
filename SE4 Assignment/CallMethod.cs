@@ -1,12 +1,25 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Runs the Method when () are present
+    /// </summary>
     public class CallMethod : Shape
     {
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters that are passed in </param>
         public CallMethod(string[] array) : base(array)
         {
         }
 
+        /// <summary>
+        /// Runs through the parameters passed in and runs each Command within the method
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage">passed in so variables can be called from within the method</param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="Exception"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             String methodName = parameters[0];      // sets the first param to the method name

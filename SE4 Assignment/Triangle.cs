@@ -1,18 +1,33 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parameters that are passed in
+    /// </summary>
+    /// <example> TRIANGLE 55 90 </example>
     public class Triangle : Shape
     {
         protected int width;
         protected int height;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters passed in</param>
         public Triangle(String[] array) : base(array)
         {
             noOfParameters = 2;
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, proccess them to make sure they are valid and passes it to the draw class to draw the shape
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage, methodStorage);
+            base.runCommand(draw, varStorage, methodStorage);       // checks the no of parameters are correct
 
             string tempW;
             string tempH;

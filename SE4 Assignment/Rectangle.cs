@@ -1,5 +1,9 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the Rectangles parameters that are passed in
+    /// </summary>
+    /// <example> RECTANGLE 50 100</example>
     public class Rectangle : Shape
     {
         protected int width;
@@ -11,14 +15,21 @@
             noOfParameters = 2;
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, proccess them to make sure they are valid and passes it to the draw class to draw the shape
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
-            base.runCommand(draw, varStorage, methodStorage);
+            base.runCommand(draw, varStorage, methodStorage);   // checks the no of parameters are correct
 
             string tempW;
             string tempH;
 
-            tempW = varStorage.GetVariableOrDefault(parameters[0]);
+            tempW = varStorage.GetVariableOrDefault(parameters[0]);     //checks if a variable has been declared if no uses what is passed in
 
             tempH = varStorage.GetVariableOrDefault(parameters[1]);
 

@@ -1,5 +1,9 @@
 ﻿namespace SE4_Assignment
 {
+    /// <summary>
+    /// Validates the parameters that are passed in
+    /// </summary>
+    /// <example> VAR A + B </example>
     public class Var : Shape
     {
         protected string name;
@@ -7,17 +11,29 @@
         protected int num1;
         protected int num2;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="array"> the parameters passed in </param>
         public Var(string[] array) : base(array)
         {
 
         }
 
+        /// <summary>
+        /// Takes the parameters passed in, and proccesses them to make sure they are valid
+        /// </summary>
+        /// <param name="draw"></param>
+        /// <param name="varStorage"></param>
+        /// <param name="methodStorage"></param>
+        /// <exception cref="Exception"></exception>
         public override void runCommand(Draw draw, VarStorage varStorage, MethodStorage methodStorage)
         {
             name = parameters[0];
 
             if (parameters.Length != 3)
             {
+                // checks to see if an operator is present
                 switch (parameters[3])
                 {
                     case "+":
@@ -46,6 +62,14 @@
             varStorage.AddVariable(name, value);        // store the varaiable and its value in the varStorage class
         }
 
+        /// <summary>
+        /// Adds the 2 numbers together
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A string of the sum of the expression </returns>
+        /// <exception cref="ArgumentException"></exception>
         private string addNumbers(string number1, string number2, VarStorage varStorage)
         {
 
@@ -67,6 +91,14 @@
             return total.ToString();
         }
 
+        /// <summary>
+        /// Subtracts one number from the other
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A string of the sum of the expression </returns>
+        /// <exception cref="ArgumentException"></exception>
         private string subtractNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage
@@ -87,6 +119,14 @@
             return total.ToString();
         }
 
+        /// <summary>
+        /// Multiplies the 2 numbers together
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A string of the sum of the expression </returns>
+        /// <exception cref="ArgumentException"></exception>
         private string multiplyNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage
@@ -107,6 +147,14 @@
             return total.ToString();
         }
 
+        /// <summary>
+        /// Divides one number from the other
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="varStorage"></param>
+        /// <returns> A string of the sum of the expression </returns>
+        /// <exception cref="ArgumentException"></exception>
         private string divideNumbers(string number1, string number2, VarStorage varStorage)
         {
             // check if the variable already exists in the varStorage
