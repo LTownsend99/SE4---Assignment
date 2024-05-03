@@ -145,7 +145,7 @@ namespace SE4_Assignment
                                     command.runCommand(draw, varStorage, methodStorage);
                                 }
 
-                                if (command is EndIf)
+                                if (command is EndIf)       // if endIf is reached break the loop and move on to the next line
                                 {
                                     i = a;
                                     break;
@@ -173,7 +173,7 @@ namespace SE4_Assignment
                                     command.runCommand(draw, varStorage, methodStorage);
                                 }
 
-                                if (command is EndWhile)
+                                if (command is EndWhile)        // if endWhile is reached break the loop and move on to the next line
                                 {
                                     temp = a;
                                     break;
@@ -214,7 +214,8 @@ namespace SE4_Assignment
                 }
                 catch (Exception ex)
                 {
-                    Terminal.Text += ex.Message + " For Command: " + line + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
+                    Terminal.Text += ex.Message + " For Command: " + line + " on Line : " + (i + 1) + Environment.NewLine;    
+                    // If the proccess of the command fails, print a message to the terminal including the exception message
                 }
             }
 
@@ -243,7 +244,8 @@ namespace SE4_Assignment
                 }
                 catch (Exception ex)
                 {
-                    Terminal.Text += ex.Message + " For Command: " + line + Environment.NewLine; ;     // If the proccess of the command fails, print a message to the terminal including th exception message
+                    Terminal.Text += ex.Message + " For Command: " + line + " on Line : " + (i+1) + Environment.NewLine;    
+                    // If the proccess of the command fails, print a message to the terminal including the exception message
                 }
             }
 

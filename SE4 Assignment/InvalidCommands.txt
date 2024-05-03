@@ -5,3 +5,12 @@ COLOUR 200 260 150
 VA A = 2
 TRIANGLE 50
 IF A B CIRCLE 100
+
+VA Radius = 20
+VAR Count = 10
+fill off
+WHILE Count < 10
+CoCircle Radius
+VAR Radius = Radius + 10
+VAR Count = Count + 1
+ENDWHILE

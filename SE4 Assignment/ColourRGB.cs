@@ -3,7 +3,7 @@
     /// <summary>
     /// Validates the parmaters that are passed in
     /// </summary>
-    /// <example> COLOUR 100 150 250 </example>
+    /// <example> COLOURRGB 100 150 250 </example>
     public class ColourRGB : Shape
     {
         protected int red;
@@ -51,7 +51,7 @@
                 throw new ArgumentException("Invalid Data - Cannot convert to Integer");
             }
 
-            // throws an exception if the height or width isnt positive 
+            // throws an exception if the red, blue or green isnt positive 
             if (red < 0 || red > 255) { throw new ArgumentException("Invalid data - Provided a Number out the range when Red should be between 0 and 255"); }
             if (blue < 0 || blue > 255) { throw new ArgumentException("Invalid data - Provided a Number out the range when Blue should be between 0 and 255"); }
             if (green < 0 || green > 255) { throw new ArgumentException("Invalid data - Provided a Number out the range when Green should be between 0 and 255"); }

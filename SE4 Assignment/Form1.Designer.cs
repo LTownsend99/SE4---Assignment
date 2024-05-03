@@ -148,6 +148,7 @@
             Terminal.Location = new Point(12, 620);
             Terminal.Multiline = true;
             Terminal.Name = "Terminal";
+            Terminal.ScrollBars = ScrollBars.Both;
             Terminal.Size = new Size(908, 229);
             Terminal.TabIndex = 6;
             // 

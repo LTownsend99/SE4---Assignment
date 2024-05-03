@@ -40,6 +40,7 @@
                     methodParameters.Add(parameters[0].Split("(")[1].Split(',')[i - 1].Replace(")", ""));
                 }
             }
+            
 
 
             methodStorage.AddMethod(name, this);    // adds the method to the methodStorage

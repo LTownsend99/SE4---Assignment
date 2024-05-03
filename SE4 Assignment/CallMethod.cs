@@ -28,19 +28,23 @@
 
             List<string> methodParameters = method.getParameters();     // gets the parameters for the relevant method 
 
-            // exception thrown if conditon is not met
-            if (methodParameters.Count != parameters.Length - 1)
+            if (methodParameters.Count > 0) // if there are no parameters in the method then there is no need to proccess anything
             {
-                throw new Exception("Invalid Number of Paramters for Method");
-            }
 
-            for (int i = 1; i < parameters.Length; i++)
-            {
-                // checks if the parameter is in the var storage 
-                String value = varStorage.GetVariableOrDefault(parameters[i]);
+                // exception thrown if conditon is not met
+                if (methodParameters.Count != parameters.Length - 1)
+                {
+                    throw new Exception("Invalid Number of Paramters for Method");
+                }
 
-                // addeds a new variable to the var storage that is referenced in the method
-                varStorage.AddVariable(methodParameters[i - 1], value);
+                for (int i = 1; i < parameters.Length; i++)
+                {
+                    // checks if the parameter is in the var storage 
+                    String value = varStorage.GetVariableOrDefault(parameters[i]);
+
+                    // addeds a new variable to the var storage that is referenced in the method
+                    varStorage.AddVariable(methodParameters[i - 1], value);
+                }
             }
 
             // for each command it get it will proccess it as normal

@@ -1,0 +1,7 @@
+VAR Radius = 20
+VAR Count = 1
+WHILE Count < 10
+ConCircle Radius
+VAR Radius = Radius + 10
+VAR Count = Count + 1
+ENDWHILE

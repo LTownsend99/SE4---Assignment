@@ -1,18 +1,11 @@
 CIRCLE 50
 MOVETO 150 100
 FILL ON
-COLOURRBG 173 216 230
+COLOURRGB 173 216 230
 RECTANGLE 200 100
 MOVETO 250 350
 COLOUR blue
 TRIANGLE 90 100
-
-
-VAR size = 50
-VAR red = 200
-VAR green = 150
-VAR blue = 100
-VAR colour = red
 
 VAR width = 50
 VAR height = 100
@@ -82,7 +75,11 @@ myMethod(50,50,100)
 
 polygon 100 50 150 30 200 50 220 100 150 150 80 100 
 
-FILL ON
-CIRCLE 100
-COLOUR RED
-CIRCLE 50
+VAR Radius = 20
+VAR Count = 1
+fill off
+WHILE Count < 10
+ConCircle Radius
+VAR Radius = Radius + 10
+VAR Count = Count + 1
+ENDWHILE
